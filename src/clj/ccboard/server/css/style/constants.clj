@@ -7,6 +7,7 @@
 ;;
 ;; colors
 (def main-background-color "#272822")
+;(def main-background-color "yellow")
 (def noplayer-color "#999")
 (def player1-color "#aaff01")
 (def player2-color "#ffaa01")

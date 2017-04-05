@@ -13,9 +13,36 @@
 
 (def only-pos-atom (reagent/atom {:x 50 :y 60}))
 
-(defn single-green-ball-reactive-elem [pos-atom]
+(defn test-handler [id special-message & [args]]
+  (this-as this*
+    (do
+      (swap! only-pos-atom assoc
+        :x (aget args "clientX"))
+      (swap! only-pos-atom assoc
+        :y (aget args "clientY")))))
+
+      ;(aset js/window "testobj1" args)
+      ;(.dir js/console special-message)
+      ;(println (aget args "clientX"))
+      ;(.dir js/console this*)
+      ;(.dir js/console args)
+      ;(.dir js/console id)
+      ;)))
+
+(defn single-green-ball-reactive-elem [pos-atom, id]
   (fn []
-    [:circle {:fill "green" :r 60 :cx (coord/x @pos-atom), :cy (coord/y @pos-atom)}]))
+    [:circle {
+      :draggable true
+      :cursor "move"
+      ;:on-drag-start (partial test-handler id "drag starting!")
+      ;:on-drag-end (partial test-handler id "drag ending!")
+      ;:on-drag (partial test-handler id "dragging!")
+      :on-mouse-move (partial test-handler id "mouse moving!")
+      ;:on-mouse-up (partial test-handler id "mouseup!")
+      :fill "aqua"
+      :r 60
+      :cx (coord/x @pos-atom),
+      :cy (coord/y @pos-atom)}]))
 
 ;(defn wire-keyboard-support! []
 ;  (jayq/on
@@ -71,7 +98,7 @@
 
 (defn init-single-green-ball! []
   (reagent/render
-    [(single-green-ball-reactive-elem only-pos-atom)]
+    [(single-green-ball-reactive-elem only-pos-atom :piece17)]
     (svg-target)))
 
 (defn setup! []
