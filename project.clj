@@ -35,6 +35,7 @@
       :compiler {
         :output-dir "resources/public/js/cljsout"
         :asset-path "js/cljsout"
+        :main ccboard.client.core
         :source-map true
         :output-to "resources/public/js/cljsout/main.js"
         :optimizations :none
