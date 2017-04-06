@@ -12,7 +12,8 @@
 
 (defn example-content []
   (svg-with-content
-    [:circle {:cx 400 :cy 400 :r 30 :fill "blue"}]))
+    ;[:circle {:cx 400 :cy 400 :r 30 :fill "blue"}]))
+    [:circle {:id "green-example" :cx 400 :cy 400 :r 30 :fill "green"}]))
 
 
 (defn render []

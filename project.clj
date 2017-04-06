@@ -12,14 +12,15 @@
   :dependencies [
     [ring/ring-core "1.5.0"]
     [hiccup "1.0.5"],
-    [reagent "0.6.1"]
+    ;[reagent "0.6.1"]
     [compojure "1.5.2"]
+    [contentjon.d3 "0.1.4"]
     [org.clojure/clojure "1.8.0"]
     [org.clojure/clojurescript "1.9.494"]
     [jayq "2.5.4"]
     ]
   :source-paths ["src/clj", "src/cljc"]
-  :ring {:handler ccboard.server.handlers/main-handler}
+  :ring {:handler ccboard.server.handlers/main-handler :auto-reload? true}
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}}
   :garden {
