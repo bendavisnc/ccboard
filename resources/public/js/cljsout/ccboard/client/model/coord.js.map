@@ -1,1 +1,0 @@
-{"version":3,"file":"\/home\/ben\/Programming\/Clojure\/ccboard\/resources\/public\/js\/cljsout\/ccboard\/client\/model\/coord.js","sources":["coord.cljs"],"lineCount":11,"mappings":";AAAA;;AAEA,+BAAA,\/BAAMA,sEAAGC;AAAT,AACE,OAAA,6EAAIA;;AAEN,+BAAA,\/BAAMC,sEAAGD;AAAT,AACE,OAAA,8EAAIA","names":["ccboard.client.model.coord\/x","this","ccboard.client.model.coord\/y"]}
