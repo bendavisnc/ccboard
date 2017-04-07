@@ -43,7 +43,6 @@
     (ccboard-view/init-pieces! pieces-data/piece-data)
     (wire-keyboard-support!)
     (ccboard-movement/enable-piece-drag!)
-    ;(enable-dragging!)
     ))
 
 ;;

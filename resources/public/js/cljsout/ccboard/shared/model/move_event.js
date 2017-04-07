@@ -85,11 +85,11 @@ var this__7357__auto____$1 = this;
 return this__7357__auto____$1.cljs$core$ILookup$_lookup$arity$3(null,k__7358__auto__,null);
 });
 
-ccboard.shared.model.move_event.MoveEvent.prototype.cljs$core$ILookup$_lookup$arity$3 = (function (this__7359__auto__,k8174,else__7360__auto__){
+ccboard.shared.model.move_event.MoveEvent.prototype.cljs$core$ILookup$_lookup$arity$3 = (function (this__7359__auto__,k8614,else__7360__auto__){
 var self__ = this;
 var this__7359__auto____$1 = this;
-var G__8176 = (((k8174 instanceof cljs.core.Keyword))?k8174.fqn:null);
-switch (G__8176) {
+var G__8616 = (((k8614 instanceof cljs.core.Keyword))?k8614.fqn:null);
+switch (G__8616) {
 case "piece":
 return self__.piece;
 
@@ -99,7 +99,7 @@ return self__.movement_data;
 
 break;
 default:
-return cljs.core.get.call(null,self__.__extmap,k8174,else__7360__auto__);
+return cljs.core.get.call(null,self__.__extmap,k8614,else__7360__auto__);
 
 }
 });
@@ -117,10 +117,10 @@ return cljs.core.pr_sequential_writer.call(null,writer__7372__auto__,pr_pair__73
 
 ccboard.shared.model.move_event.MoveEvent.prototype.cljs$core$IIterable$ = cljs.core.PROTOCOL_SENTINEL;
 
-ccboard.shared.model.move_event.MoveEvent.prototype.cljs$core$IIterable$_iterator$arity$1 = (function (G__8173){
+ccboard.shared.model.move_event.MoveEvent.prototype.cljs$core$IIterable$_iterator$arity$1 = (function (G__8613){
 var self__ = this;
-var G__8173__$1 = this;
-return (new cljs.core.RecordIter((0),G__8173__$1,2,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"piece","piece",1396691784),new cljs.core.Keyword(null,"movement-data","movement-data",-314283653)], null),(cljs.core.truth_(self__.__extmap)?cljs.core._iterator.call(null,self__.__extmap):cljs.core.nil_iter.call(null))));
+var G__8613__$1 = this;
+return (new cljs.core.RecordIter((0),G__8613__$1,2,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"piece","piece",1396691784),new cljs.core.Keyword(null,"movement-data","movement-data",-314283653)], null),(cljs.core.truth_(self__.__extmap)?cljs.core._iterator.call(null,self__.__extmap):cljs.core.nil_iter.call(null))));
 });
 
 ccboard.shared.model.move_event.MoveEvent.prototype.cljs$core$IMeta$_meta$arity$1 = (function (this__7355__auto__){
@@ -181,18 +181,18 @@ return (new ccboard.shared.model.move_event.MoveEvent(self__.piece,self__.moveme
 }
 });
 
-ccboard.shared.model.move_event.MoveEvent.prototype.cljs$core$IAssociative$_assoc$arity$3 = (function (this__7364__auto__,k__7365__auto__,G__8173){
+ccboard.shared.model.move_event.MoveEvent.prototype.cljs$core$IAssociative$_assoc$arity$3 = (function (this__7364__auto__,k__7365__auto__,G__8613){
 var self__ = this;
 var this__7364__auto____$1 = this;
-var pred__8177 = cljs.core.keyword_identical_QMARK_;
-var expr__8178 = k__7365__auto__;
-if(cljs.core.truth_(pred__8177.call(null,new cljs.core.Keyword(null,"piece","piece",1396691784),expr__8178))){
-return (new ccboard.shared.model.move_event.MoveEvent(G__8173,self__.movement_data,self__.__meta,self__.__extmap,null));
+var pred__8617 = cljs.core.keyword_identical_QMARK_;
+var expr__8618 = k__7365__auto__;
+if(cljs.core.truth_(pred__8617.call(null,new cljs.core.Keyword(null,"piece","piece",1396691784),expr__8618))){
+return (new ccboard.shared.model.move_event.MoveEvent(G__8613,self__.movement_data,self__.__meta,self__.__extmap,null));
 } else {
-if(cljs.core.truth_(pred__8177.call(null,new cljs.core.Keyword(null,"movement-data","movement-data",-314283653),expr__8178))){
-return (new ccboard.shared.model.move_event.MoveEvent(self__.piece,G__8173,self__.__meta,self__.__extmap,null));
+if(cljs.core.truth_(pred__8617.call(null,new cljs.core.Keyword(null,"movement-data","movement-data",-314283653),expr__8618))){
+return (new ccboard.shared.model.move_event.MoveEvent(self__.piece,G__8613,self__.__meta,self__.__extmap,null));
 } else {
-return (new ccboard.shared.model.move_event.MoveEvent(self__.piece,self__.movement_data,self__.__meta,cljs.core.assoc.call(null,self__.__extmap,k__7365__auto__,G__8173),null));
+return (new ccboard.shared.model.move_event.MoveEvent(self__.piece,self__.movement_data,self__.__meta,cljs.core.assoc.call(null,self__.__extmap,k__7365__auto__,G__8613),null));
 }
 }
 });
@@ -203,10 +203,10 @@ var this__7369__auto____$1 = this;
 return cljs.core.seq.call(null,cljs.core.concat.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"piece","piece",1396691784),self__.piece],null)),(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"movement-data","movement-data",-314283653),self__.movement_data],null))], null),self__.__extmap));
 });
 
-ccboard.shared.model.move_event.MoveEvent.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (this__7356__auto__,G__8173){
+ccboard.shared.model.move_event.MoveEvent.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (this__7356__auto__,G__8613){
 var self__ = this;
 var this__7356__auto____$1 = this;
-return (new ccboard.shared.model.move_event.MoveEvent(self__.piece,self__.movement_data,G__8173,self__.__extmap,self__.__hash));
+return (new ccboard.shared.model.move_event.MoveEvent(self__.piece,self__.movement_data,G__8613,self__.__extmap,self__.__hash));
 });
 
 ccboard.shared.model.move_event.MoveEvent.prototype.cljs$core$ICollection$_conj$arity$2 = (function (this__7362__auto__,entry__7363__auto__){
@@ -251,28 +251,28 @@ ccboard.shared.model.move_event.__GT_MoveEvent = (function ccboard$shared$model$
 return (new ccboard.shared.model.move_event.MoveEvent(piece,movement_data,null,null,null));
 });
 
-ccboard.shared.model.move_event.map__GT_MoveEvent = (function ccboard$shared$model$move_event$map__GT_MoveEvent(G__8175){
-return (new ccboard.shared.model.move_event.MoveEvent(new cljs.core.Keyword(null,"piece","piece",1396691784).cljs$core$IFn$_invoke$arity$1(G__8175),new cljs.core.Keyword(null,"movement-data","movement-data",-314283653).cljs$core$IFn$_invoke$arity$1(G__8175),null,cljs.core.dissoc.call(null,G__8175,new cljs.core.Keyword(null,"piece","piece",1396691784),new cljs.core.Keyword(null,"movement-data","movement-data",-314283653)),null));
+ccboard.shared.model.move_event.map__GT_MoveEvent = (function ccboard$shared$model$move_event$map__GT_MoveEvent(G__8615){
+return (new ccboard.shared.model.move_event.MoveEvent(new cljs.core.Keyword(null,"piece","piece",1396691784).cljs$core$IFn$_invoke$arity$1(G__8615),new cljs.core.Keyword(null,"movement-data","movement-data",-314283653).cljs$core$IFn$_invoke$arity$1(G__8615),null,cljs.core.dissoc.call(null,G__8615,new cljs.core.Keyword(null,"piece","piece",1396691784),new cljs.core.Keyword(null,"movement-data","movement-data",-314283653)),null));
 });
 
 ccboard.shared.model.move_event.create = (function ccboard$shared$model$move_event$create(var_args){
-var args8181 = [];
-var len__7843__auto___8184 = arguments.length;
-var i__7844__auto___8185 = (0);
+var args8621 = [];
+var len__7843__auto___8624 = arguments.length;
+var i__7844__auto___8625 = (0);
 while(true){
-if((i__7844__auto___8185 < len__7843__auto___8184)){
-args8181.push((arguments[i__7844__auto___8185]));
+if((i__7844__auto___8625 < len__7843__auto___8624)){
+args8621.push((arguments[i__7844__auto___8625]));
 
-var G__8186 = (i__7844__auto___8185 + (1));
-i__7844__auto___8185 = G__8186;
+var G__8626 = (i__7844__auto___8625 + (1));
+i__7844__auto___8625 = G__8626;
 continue;
 } else {
 }
 break;
 }
 
-var G__8183 = args8181.length;
-switch (G__8183) {
+var G__8623 = args8621.length;
+switch (G__8623) {
 case 1:
 return ccboard.shared.model.move_event.create.cljs$core$IFn$_invoke$arity$1((arguments[(0)]));
 
@@ -282,7 +282,7 @@ return ccboard.shared.model.move_event.create.cljs$core$IFn$_invoke$arity$2((arg
 
 break;
 default:
-throw (new Error([cljs.core.str.cljs$core$IFn$_invoke$arity$1("Invalid arity: "),cljs.core.str.cljs$core$IFn$_invoke$arity$1(args8181.length)].join('')));
+throw (new Error([cljs.core.str.cljs$core$IFn$_invoke$arity$1("Invalid arity: "),cljs.core.str.cljs$core$IFn$_invoke$arity$1(args8621.length)].join('')));
 
 }
 });

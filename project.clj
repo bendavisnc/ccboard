@@ -18,6 +18,7 @@
     [org.clojure/clojure "1.8.0"]
     [org.clojure/clojurescript "1.9.494"]
     [jayq "2.5.4"]
+    [org.clojure/core.async "0.3.442"]
     ]
   :source-paths ["src/clj", "src/cljc"]
   :ring {:handler ccboard.server.handlers/main-handler :auto-reload? true}

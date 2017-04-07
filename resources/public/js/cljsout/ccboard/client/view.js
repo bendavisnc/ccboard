@@ -3,6 +3,7 @@ goog.provide('ccboard.client.view');
 goog.require('cljs.core');
 goog.require('d3.core');
 goog.require('ccboard.client.d3_helpers');
+goog.require('ccboard.client.async');
 ccboard.client.view.svg_d3 = d3.core.select.call(null,"svg");
 ccboard.client.view.to_creation_data = (function ccboard$client$view$to_creation_data(piece_data){
 return cljs.core.reduce_kv.call(null,(function (acc,k,v){
