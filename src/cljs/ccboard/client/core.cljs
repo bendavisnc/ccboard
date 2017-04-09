@@ -12,38 +12,37 @@
    )
 )
 
-
-(defn wire-keyboard-support! []
-  (jayq/on
-    (jayq/$ js/window)
-    "keydown"
-    (fn [d]
-      (when-let [
-        [c f]
-          (let [k (aget d "keyCode")]
-            (cond
-              (= k 37) ;left-arrow
-                [:x #(- % 20)]
-              (= k 38) ;up-arrow
-                ;[:y inc]
-                [:y #(- % 20)]
-              (= k 39) ;right-arrow
-                ;[:x inc]
-                [:x #(+ % 20)]
-              (= k 40) ;down-arrow
-                ;[:y dec]
-                [:y #(+ % 20)]
-                ))
-        ]
-        (do
-          (swap! (ccboard-atomic/pieces :p27) update c f))))))
-
 (defn setup! []
   (do
     (ccboard-view/init-pieces! pieces-data/piece-data)
-    (wire-keyboard-support!)
     (ccboard-movement/enable-piece-drag!)
     ))
+
+;(defn wire-keyboard-support! []
+;  (jayq/on
+;    (jayq/$ js/window)
+;    "keydown"
+;    (fn [d]
+;      (when-let [
+;        [c f]
+;          (let [k (aget d "keyCode")]
+;            (cond
+;              (= k 37) ;left-arrow
+;                [:x #(- % 20)]
+;              (= k 38) ;up-arrow
+;                ;[:y inc]
+;                [:y #(- % 20)]
+;              (= k 39) ;right-arrow
+;                ;[:x inc]
+;                [:x #(+ % 20)]
+;              (= k 40) ;down-arrow
+;                ;[:y dec]
+;                [:y #(+ % 20)]
+;                ))
+;        ]
+;        (do
+;          (swap! (ccboard-atomic/pieces :p27) update c f))))))
+
 
 ;;
 ;; onload

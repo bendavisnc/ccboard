@@ -5,12 +5,24 @@
 
 (def main-css
   [
-    ["body" {
-      "background-color" style-constants/main-background-color
-    }],
-    ["svg" {
-      "border" "2px solid black"
-    }]
+    [
+      "body"
+      {
+        "background-color" style-constants/main-background-color
+      }
+    ],
+    [
+      "svg"
+      {
+        "border" "2px solid black"
+      }
+      [
+        ".piece"
+        {
+          "cursor" "move"
+        }
+      ]
+    ]
   ])
 
 (def all-css-data

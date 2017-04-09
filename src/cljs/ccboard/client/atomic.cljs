@@ -20,3 +20,5 @@
       (assoc acc k (build-position-atom k v)))
     {}
     pieces-data/piece-data))
+
+(def moves (atom []))

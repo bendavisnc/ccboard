@@ -9,29 +9,37 @@
             [ccboard.client.d3-helpers :as d3-helpers]))
 
 
-(defn on-drag! [d]
+(defn on-drag! [_]
   (this-as this*
     (let [
-        d* (js->clj d :keywordize-keys true)
         piece-k (keyword (aget this* "id"))
         [mouse-x, mouse-y]
           (js->clj
             (.mouse js/d3
               (.node ccboard-view/svg-d3)))
+        event-data
+          {
+            :x mouse-x
+            :y mouse-y
+          }
       ]
-      (swap!
-        (ccboard-atomic/pieces piece-k)
-         merge
-         {
-           :x mouse-x
-           :y mouse-y
-         }))))
+      (do
+        (swap! (ccboard-atomic/pieces piece-k) merge event-data)
+        (ccboard-async/push-piece-drag-event event-data)))))
 
-(defn on-drag-start! [args]
-  nil)
+(defn on-drag-start! [_]
+  (this-as this*
+    (let [
+        piece-k (keyword (aget this* "id"))
+      ]
+      (ccboard-async/push-piece-drag-start-event piece-k))))
 
-(defn on-drag-stop! [args]
-  nil)
+(defn on-drag-stop! [_]
+  (this-as this*
+    (let [
+        piece-k (keyword (aget this* "id"))
+      ]
+      (ccboard-async/push-piece-drag-end-event piece-k))))
 
 (defn enable-piece-drag! []
   (.call

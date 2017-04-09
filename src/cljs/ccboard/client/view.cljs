@@ -2,7 +2,6 @@
   (:require
     [d3.core :as d3]
     [ccboard.client.d3-helpers :refer [get-x, get-y, get-id]]
-    [ccboard.client.async :as ccboard-async]
     ))
 
 (def svg-d3
