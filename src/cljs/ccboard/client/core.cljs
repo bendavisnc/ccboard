@@ -8,7 +8,7 @@
    [ccboard.client.view :as ccboard-view]
    [ccboard.shared.data.pieces :as pieces-data]
    [ccboard.client.movement :as ccboard-movement]
-
+   [ccboard.client.playground]
    )
 )
 

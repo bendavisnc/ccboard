@@ -4,9 +4,10 @@
   (:require [d3.core :as d3]
             [ccboard.client.async :as ccboard-async]
             [ccboard.client.view :as ccboard-view]
-            [cljs.core.async :as async]
             [ccboard.client.atomic :as ccboard-atomic]
-            [ccboard.client.d3-helpers :as d3-helpers]))
+            [ccboard.client.d3-helpers :as d3-helpers]
+            [ccboard.shared.model.move-event :as move-event]
+            ))
 
 
 (defn on-drag! [_]
@@ -25,7 +26,7 @@
       ]
       (do
         (swap! (ccboard-atomic/pieces piece-k) merge event-data)
-        (ccboard-async/push-piece-drag-event event-data)))))
+        (ccboard-async/push-piece-drag-move-event event-data)))))
 
 (defn on-drag-start! [_]
   (this-as this*
@@ -51,52 +52,37 @@
       (.on "end" on-drag-stop!))))
 
 
-;(defn- wire-mousedown! []
-;  (->
-;    ".piece"
-;    (d3/select)
-;    (d3/on "mousedown"
-;    (fn [d]
-;      (ccboard-async/pass-to-mousedown-chan! (keyword (aget d "id")))))))
-;      ;(do
-;      ;  (println "hey there bob")
-;      ;  (println
-;      ;    (.mouse js/d3 (.node ccboard-view/svg-d3)))
-;
-;
-;(defn- wire-mouseup! []
-;  (->
-;    ".piece"
-;    (d3/select)
-;    (d3/on "mouseup"
-;    (fn [d]
-;      (ccboard-async/pass-to-mouseup-chan! (keyword (aget d "id")))))))
-;
-;(defn enable-piece-drag! []
-;  (do
-;    (wire-mousedown!)
-;    (wire-mouseup!)
-;    ))
-;
-;(def asynctity
-;  (async-macros/go-loop []
-;    (let [piece-k (async/<! ccboard-async/piece-mousedown-events-chan)]
-;      (do
-;        (while (not (async/poll! ccboard-async/piece-mouseup-events-chan))
-;          (let [
-;              part1 (.node ccboard-view/svg-d3)
-;              good? (.dir js/console part1)
-;              part2 (.mouse js/d3 part1)
-;              [mousex, mousey]
-;                (do
-;                  (println part1)
-;                  (println part2)
-;                  (js->clj part2))
-;            ]
-;            (swap!
-;              (ccboard-atomic/pieces piece-k) merge
-;              {
-;                :x mousex
-;                :y mousey
-;               })))
-;        (recur)))))
+(defn eval-move-event! [e]
+  (do
+    (println e)
+    (loop [move-positions (move-event/movement-data e)]
+      (when (not (empty? move-positions))
+        (do
+          (swap!
+            (ccboard-atomic/pieces (move-event/piece e))
+            merge
+            (first move-positions))
+          (recur (rest move-positions)))))))
+
+
+
+(defn eval-move-events! [es]
+  (dorun
+    (map
+      #(eval-move-event! %)
+      (filter
+        (complement :move-realized?)
+        es))))
+
+
+
+
+
+
+
+
+
+
+
+
+
