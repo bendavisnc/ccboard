@@ -33,10 +33,57 @@
     (d3/css "fill" "white")
     ))
 
-(defn update-piece! [piece-k, new-position]
-  (->
-    (str "#" (name piece-k))
-    (d3/select)
-    (d3/datum (clj->js new-position))
-    (d3/attr "cx" get-x)
-    (d3/attr "cy" get-y)))
+;todo cleanup
+(defn update-piece! [piece-k, new-position & {:keys [transition-time, and-then]}]
+  ;(->
+  ;  (str "#" (name piece-k))
+  ;  (d3/select)
+  ;  (d3/datum (clj->js new-position))
+  ;  (d3/attr "cx" get-x)
+  ;  (d3/attr "cy" get-y)))
+  (let [
+      selection-a
+        (->
+          (str "#" (name piece-k))
+          (d3/select)
+          (d3/datum (clj->js new-position)))
+      selection-b
+        (if
+          transition-time
+            (->
+              selection-a
+              (d3/transition)
+              (d3/duration transition-time))
+          ;else
+            selection-a)
+      selection-c
+        (if
+          and-then
+            (->
+              selection-b
+              (d3/on "end" and-then))
+          ;else
+            selection-b)
+    ]
+    (->
+      selection-c
+      (d3/attr "cx" get-x)
+      (d3/attr "cy" get-y))))
+  ;(if
+  ;  transition-time
+  ;    (->
+  ;      (str "#" (name piece-k))
+  ;      (d3/select)
+  ;      (d3/datum (clj->js new-position))
+  ;      (d3/transition)
+  ;      (d3/duration transition-time)
+  ;      (d3/attr "cx" get-x)
+  ;      (d3/attr "cy" get-y))
+  ;  ;else
+  ;    (->
+  ;      (str "#" (name piece-k))
+  ;      (d3/select)
+  ;      (d3/datum (clj->js new-position))
+  ;      (d3/attr "cx" get-x)
+  ;      (d3/attr "cy" get-y))))
+;

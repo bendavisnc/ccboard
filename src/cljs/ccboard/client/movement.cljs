@@ -4,7 +4,6 @@
   (:require [d3.core :as d3]
             [ccboard.client.async :as ccboard-async]
             [ccboard.client.view :as ccboard-view]
-            [ccboard.client.atomic :as ccboard-atomic]
             [ccboard.client.d3-helpers :as d3-helpers]
             [ccboard.shared.model.move-event :as move-event]
             ))
@@ -25,7 +24,7 @@
           }
       ]
       (do
-        (swap! (ccboard-atomic/pieces piece-k) merge event-data)
+        (ccboard-view/update-piece! piece-k event-data)
         (ccboard-async/push-piece-drag-move-event event-data)))))
 
 (defn on-drag-start! [_]
@@ -53,16 +52,31 @@
 
 
 (defn eval-move-event! [e]
-  (do
-    (println e)
-    (loop [move-positions (move-event/movement-data e)]
-      (when (not (empty? move-positions))
-        (do
-          (swap!
-            (ccboard-atomic/pieces (move-event/piece e))
-            merge
-            (first move-positions))
-          (recur (rest move-positions)))))))
+  "Takes a move event model object and makes a ghost like piece drag happen."
+  (letfn [
+      (update-fn [moves-to-make]
+        (when (not (empty? moves-to-make))
+          (ccboard-view/update-piece!
+            (move-event/piece e)
+            (first moves-to-make)
+            :and-then (fn [] (update-fn (rest moves-to-make)))
+            :transition-time 10 ;todo make smarter
+            )))
+    ]
+    (update-fn (move-event/movement-data e))))
+
+
+
+  ;(do
+  ;  (println e)
+  ;  (loop [move-positions (move-event/movement-data e)]
+  ;    (when (not (empty? move-positions))
+  ;      (do
+  ;        (ccboard-view/update-piece!
+  ;          (move-event/piece e)
+  ;          (first move-positions)
+  ;          1000)
+  ;        (recur (rest move-positions)))))))
 
 
 

@@ -9,7 +9,7 @@
   (movement-data [this] "All of the positions (x y coords) that the piece moved.")
   (start-time [this] "The time (millis) the move event started.")
   (end-time [this] "The time (millis) the move event finished.")
-  (move-realized? [this] "Rather this move is expected to ALREADY be reflected on the current client's board (svg dom).")
+  (move-realized? [this] "Whether this move is expected to ALREADY be reflected on the current client's board (svg dom).")
   )
 
 (defrecord MoveEvent [piece, movement-data, start-time, end-time, move-realized?]

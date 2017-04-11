@@ -8,13 +8,14 @@
     [
       "body"
       {
-        "background-color" style-constants/main-background-color
+        "background-color" "black"
       }
     ],
     [
       "svg"
       {
         "border" "2px solid black"
+        "background-color" style-constants/main-background-color
       }
       [
         ".piece"
