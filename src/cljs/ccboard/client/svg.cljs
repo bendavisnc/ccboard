@@ -19,6 +19,7 @@
     [] piece-data))
 
 (defn init-pieces! [piece-data]
+  "The entry point to defining what an svg piece representation is."
   (->
     svg-d3
     (d3/select* ".piece")
@@ -40,12 +41,12 @@
 (defn update-piece! [piece-k, new-position & {:keys [transition-time, and-then]}]
   "Tasked with ultimately calling d3's attr method once on a piece piece-k and a new position."
   (let [
-        selection-a
+      selection-a
         (->
           (str "#" (name piece-k))
           (d3/select)
           (d3/datum (clj->js new-position)))
-        selection-b
+      selection-b
         (if
           transition-time
           (->
@@ -54,7 +55,7 @@
             (d3/duration transition-time))
           ;else
           selection-a)
-        selection-c
+      selection-c
         (if
           and-then
           (->

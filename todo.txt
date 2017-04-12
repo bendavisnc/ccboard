@@ -1,3 +1,10 @@
 
 web server work
+  add websockethandler
+  add piece data generation
 
+
+front end work
+
+  add websocket connection code
+  gui work

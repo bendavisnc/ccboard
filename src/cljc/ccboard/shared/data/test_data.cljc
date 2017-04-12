@@ -9,3 +9,23 @@
     :move-realized? false
   })
 
+
+(def test-board {
+  :move-events [test-move-event]
+  })
+
+(def test-boards {
+  :just-a-test-board test-board
+})
+
+(def test-piece-data {
+  :piece0
+    {:x 350, :y 200 :z 1}
+  :piece23
+    {:x 320, :y 400 :z 1}
+  :piece27
+    {:x 350, :y 400 :z 1}
+  })
+
+
+

@@ -1,4 +1,6 @@
-(ns ccboard.server.css.style.constants)
+(ns ccboard.server.css.style.constants
+  (:require [ccboard.shared.constants :as shared-constants])
+)
 
 ;;
 ;;
@@ -20,5 +22,5 @@
 ;; dimensions
 ;(def board-width "800px")
 ;(def board-height "600px")
-(def board-width "1200px")
-(def board-height "800px")
+(def board-width (str shared-constants/board-width "px"))
+(def board-height (str shared-constants/board-height "px"))

@@ -1,13 +1,8 @@
-(ns ccboard.shared.data.pieces)
+(ns ccboard.shared.data.pieces
+  (:require [ccboard.shared.data.test-data :as test-data])
+)
 
-(def piece-data {
-  :piece0
-    {:x 350, :y 200 :z 1}
-  :piece23
-    {:x 320, :y 400 :z 1}
-  :piece27
-    {:x 350, :y 400 :z 1}
-  })
+(def piece-data test-data/test-piece-data)
 
 
 
