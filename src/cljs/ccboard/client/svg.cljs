@@ -1,8 +1,12 @@
-(ns ccboard.client.view
+(ns ccboard.client.svg
   (:require
     [d3.core :as d3]
     [ccboard.client.d3-helpers :refer [get-x, get-y, get-id]]
     ))
+
+;;
+;;
+;; Any d3 svg manipulation happens here.
 
 (def svg-d3
   (d3/select "svg"))
@@ -30,60 +34,37 @@
     (d3/attr "cy" get-y)
     (d3/attr "id" get-id)
     (d3/attr "r" 50)
-    (d3/css "fill" "white")
     ))
 
 ;todo cleanup
 (defn update-piece! [piece-k, new-position & {:keys [transition-time, and-then]}]
-  ;(->
-  ;  (str "#" (name piece-k))
-  ;  (d3/select)
-  ;  (d3/datum (clj->js new-position))
-  ;  (d3/attr "cx" get-x)
-  ;  (d3/attr "cy" get-y)))
+  "Tasked with ultimately calling d3's attr method once on a piece piece-k and a new position."
   (let [
-      selection-a
+        selection-a
         (->
           (str "#" (name piece-k))
           (d3/select)
           (d3/datum (clj->js new-position)))
-      selection-b
+        selection-b
         (if
           transition-time
-            (->
-              selection-a
-              (d3/transition)
-              (d3/duration transition-time))
+          (->
+            selection-a
+            (d3/transition)
+            (d3/duration transition-time))
           ;else
-            selection-a)
-      selection-c
+          selection-a)
+        selection-c
         (if
           and-then
-            (->
-              selection-b
-              (d3/on "end" and-then))
+          (->
+            selection-b
+            (d3/on "end" and-then))
           ;else
-            selection-b)
-    ]
+          selection-b)
+        ]
     (->
       selection-c
       (d3/attr "cx" get-x)
       (d3/attr "cy" get-y))))
-  ;(if
-  ;  transition-time
-  ;    (->
-  ;      (str "#" (name piece-k))
-  ;      (d3/select)
-  ;      (d3/datum (clj->js new-position))
-  ;      (d3/transition)
-  ;      (d3/duration transition-time)
-  ;      (d3/attr "cx" get-x)
-  ;      (d3/attr "cy" get-y))
-  ;  ;else
-  ;    (->
-  ;      (str "#" (name piece-k))
-  ;      (d3/select)
-  ;      (d3/datum (clj->js new-position))
-  ;      (d3/attr "cx" get-x)
-  ;      (d3/attr "cy" get-y))))
-;
+

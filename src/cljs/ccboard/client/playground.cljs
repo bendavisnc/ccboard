@@ -1,22 +1,16 @@
 (ns ccboard.client.playground
   (:require
-    [ccboard.client.atomic :as ccboard-atomic]
-    [ccboard.client.async :as ccboard-async]
     [ccboard.shared.data.test-data :as test-data]
+    [ccboard.client.async.movement :as async-movement]
     [ccboard.shared.model.move-event :as move-event]
     ))
 
 
-(aset js/window "testfn4"
-  (fn []
-    (println @ccboard-atomic/moves)))
-
-
 (aset js/window "test_place_move"
   (fn []
-    (swap! ccboard-atomic/moves
-      conj
-      (move-event/create test-data/test-move))))
-
-
+    (async-movement/put-new-from-server-move-event!
+      (move-event/create
+        test-data/test-move-event))))
+;
+;
 

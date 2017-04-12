@@ -1,5 +1,8 @@
 (ns ccboard.server.css.style.main
-  (:require [ccboard.server.css.style.constants :as style-constants])
+  (:require
+    [ccboard.server.css.style.constants :as style-constants]
+    [ccboard.server.css.style.pieces :as style-pieces]
+    )
 )
 
 
@@ -29,4 +32,5 @@
 (def all-css-data
   [
     main-css
+    style-pieces/piece-css
   ])

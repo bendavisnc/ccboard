@@ -10,3 +10,11 @@ svg {
 svg .piece {
   cursor: move;
 }
+
+#piece0 {
+  fill: blue;
+}
+
+#piece27 {
+  fill: pink;
+}
