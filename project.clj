@@ -30,7 +30,7 @@
   :garden {
     :builds [{
       :id "ccboard-style"
-      :source-paths ["src/clj"]
+      :source-paths ["src/clj", "src/cljc"]
       :stylesheet ccboard.server.css.style.main/all-css-data
       :compiler {
         :output-to "resources/public/css/main-style.css"

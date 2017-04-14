@@ -3,6 +3,7 @@
     [ccboard.client.async.movement :as async-movement]
     [ccboard.client.svg :as ccboard-svg]
     [ccboard.client.d3-helpers :as d3-helpers]
+    [ccboard.shared.model.coord :as coord]
     [d3.core :as d3])
 )
 
@@ -13,11 +14,7 @@
     (let [
         piece-k (keyword (aget this* "id"))
         [mouse-x, mouse-y] (d3-helpers/mouse-data ccboard-svg/svg-d3)
-        event-data
-          {
-            :x mouse-x
-            :y mouse-y
-          } ;todo - creator method
+        event-data (coord/create :x mouse-x :y mouse-y)
       ]
       (do
         (ccboard-svg/update-piece! piece-k event-data)
