@@ -1,6 +1,6 @@
 (ns ccboard.server.html.buttons)
 
-(defn button-template [button-id, img-src]
+(defn- button-template [button-id, img-src]
   ["div" {:class "ccboard-button" :id button-id}
     ["img" {:src img-src}]
   ])
@@ -27,5 +27,8 @@
 (def bottom-buttons-set
   [:div {:id "bottom-buttons" :class "buttons-set"}
     rotate-button,
-    reset-button,
+    ;reset-button,
     ])
+
+(def new-board-button
+  (button-template "new-board-button" "img/buttons/new-board-button.png"))

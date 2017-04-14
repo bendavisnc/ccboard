@@ -6,7 +6,7 @@
     [ring.middleware.params :as params]
     [ring.middleware.content-type :as content-type]
     [ccboard.server.html.main-page :as main-page]
-    [ccboard.server.data.boards :as boards-data]
+    [ccboard.server.boards :as boards]
     )
   )
 
@@ -20,8 +20,17 @@
       :headers {"Content-Type" "application/edn"}
       :body
         (pr-str
-          (boards-data/select-all :keys-only? true))
+          (boards/get-all-board-keys))
     })
+  (params/wrap-params
+    (GET "/get-board-data" request {
+        :status 200
+        :headers {"Content-Type" "application/edn"}
+        :body
+          (pr-str
+            (into {}
+              (boards/get-board (keyword (get-in request [:query-params "board-key"])))))
+      }))
   (route/resources "/")
   (route/not-found "<h1>Page not found</h1>"))
 

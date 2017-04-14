@@ -10,20 +10,7 @@
   })
 
 
-(def test-board {
-  :move-events [test-move-event]
-  })
-
-(def test-board-2* {
-  :move-events []
-  })
-
-(def test-boards {
-  :just-a-test-board test-board
-  :test-board-2 test-board-2*
-})
-
-(def test-piece-data {
+(def test-starting-positions-data {
   :piece0
     {:x 350, :y 200 :z 1}
   :piece23
@@ -32,5 +19,20 @@
     {:x 350, :y 400 :z 1}
   })
 
+
+(def test-board {
+  :move-events [test-move-event]
+  :starting-positions test-starting-positions-data
+  })
+
+(def test-board-2* {
+  :move-events []
+  :starting-positions test-starting-positions-data
+  })
+
+(def test-boards {
+  :just-a-test-board test-board
+  :test-board-2 test-board-2*
+})
 
 

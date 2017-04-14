@@ -13,6 +13,8 @@
       {
         "float" "left"
         "margin-right" "20px"
+        :width "100px"
+        :height "100px"
       }
     ],
     [
