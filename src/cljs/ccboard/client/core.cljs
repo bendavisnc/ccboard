@@ -10,18 +10,8 @@
    )
 )
 
-;(defn setup! []
-;  (do
-;    (ccboard-svg/init-pieces! pieces-data/piece-data)
-;    (ccboard-mouse/enable-mouse-drag!)
-;    ))
-
 (defn on-app-start! []
-  (do
-    (boards/load-boards-from-server! :and-then boards/select-first-board!)))
-                                     ;#(do
-                                     ;  (boards/select-first-board!)
-                                     ;  (ccboard-mouse/enable-mouse-drag!)))))
+  (boards/load-boards-from-server! :and-then boards/select-first-board!))
 
 ;;
 ;; onload

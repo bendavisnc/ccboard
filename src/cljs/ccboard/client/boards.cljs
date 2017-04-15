@@ -5,7 +5,7 @@
     [ccboard.client.ui.boards-panel :as boards-panel]
     [ccboard.client.svg :as ccboard-svg]
     [ccboard.client.mouse :as ccboard-mouse]
-
+    [ccboard.client.simple-board-session :as simple-board-session]
     [d3.core :as d3]
     )
 )
@@ -30,15 +30,20 @@
       (d3/select (str "#" (name board-key)))
       (d3/attr "class" "board-li selected"))))
 
+(defn on-board-select! [newly-selected-board]
+  (do
+    (simple-board-session/create-new newly-selected-board)
+    (toggle-board-selected (board/board-id newly-selected-board))))
+
+
+
 (defn select-board! [board-key]
   "Selects the board associated with the given board key."
   (boards-data/get-board-data board-key
     (fn [board-from-server]
       (do
         (assert (= (board/board-id board-from-server) board-key))
-        (ccboard-svg/init-pieces! (board/starting-positions board-from-server))
-        (ccboard-mouse/enable-mouse-drag!)
-        (toggle-board-selected board-key)
+        (on-board-select! board-from-server)
         ))))
 
 (defn select-first-board! []

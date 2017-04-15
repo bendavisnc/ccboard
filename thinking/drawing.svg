@@ -40,9 +40,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.64"
-     inkscape:cx="-580.12746"
-     inkscape:cy="-1135.1969"
+     inkscape:zoom="1.8101934"
+     inkscape:cx="14199.166"
+     inkscape:cy="3931.1278"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -1088,5 +1088,467 @@
          x="-2246.3975"
          id="tspan3212"
          sodipodi:role="line">defn select-board [board-key]</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3162"
+       y="-1343.6749"
+       x="13692.397"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Raleway;-inkscape-font-specification:Raleway Light"
+       xml:space="preserve"><tspan
+         y="-1343.6749"
+         x="13692.397"
+         id="tspan3164"
+         sodipodi:role="line">load-boards-from-server!</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ff6600;fill-opacity:1;stroke:none;font-family:Raleway;-inkscape-font-specification:Raleway Light"
+       x="17254.605"
+       y="199.38608"
+       id="text3166"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3168"
+         x="17254.605"
+         y="199.38608">ccboard.client.svg</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3170"
+       y="518.52454"
+       x="17259.656"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ff6600;fill-opacity:1;stroke:none;font-family:Raleway;-inkscape-font-specification:Raleway Light"
+       xml:space="preserve"><tspan
+         y="518.52454"
+         x="17259.656"
+         id="tspan3172"
+         sodipodi:role="line">ccboard.client.async.movement</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path3174"
+       d="m 17180.801,116.96093 81.822,42.4264"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)" />
+    <path
+       sodipodi:nodetypes="cc"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 17184.25,145.01752 87.536,338.85497"
+       id="path3177"
+       inkscape:connector-curvature="0" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text3179"
+       y="130.53983"
+       x="17254.605"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#cccccc;fill-opacity:1;stroke:none;font-family:Raleway;-inkscape-font-specification:Raleway Light"
+       xml:space="preserve"><tspan
+         y="130.53983"
+         x="17254.605"
+         id="tspan3181"
+         sodipodi:role="line">update-piece!</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ff6600;fill-opacity:1;stroke:none;font-family:Raleway;-inkscape-font-specification:Raleway Light"
+       x="16371.731"
+       y="8.467248"
+       id="text3183"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3185"
+         x="16371.731"
+         y="8.467248">ccboard.client.core</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 16710.07,30.087811 81.822,42.4264"
+       id="path3187"
+       inkscape:connector-curvature="0" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text3193"
+       y="293.33029"
+       x="16799.025"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ff6600;fill-opacity:1;stroke:none;font-family:Raleway;-inkscape-font-specification:Raleway Light"
+       xml:space="preserve"><tspan
+         y="293.33029"
+         x="16799.025"
+         id="tspan3195"
+         sodipodi:role="line">ccboard.client.svg</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 16725.222,210.90512 81.822,42.4264"
+       id="path3197"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#cccccc;fill-opacity:1;stroke:none;font-family:Raleway;-inkscape-font-specification:Raleway Light"
+       x="16799.025"
+       y="229.6907"
+       id="text3199"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3201"
+         x="16799.025"
+         y="229.6907">init-pieces!</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#cccccc;fill-opacity:1;stroke:none;font-family:Raleway;-inkscape-font-specification:Raleway Light"
+       x="17280.32"
+       y="464.11124"
+       id="text3203"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3205"
+         x="17280.32"
+         y="464.11124">put-stop!</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3207"
+       y="418.39694"
+       x="17280.32"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#cccccc;fill-opacity:1;stroke:none;font-family:Raleway;-inkscape-font-specification:Raleway Light"
+       xml:space="preserve"><tspan
+         y="418.39694"
+         x="17280.32"
+         id="tspan3209"
+         sodipodi:role="line">put-start!</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#cccccc;fill-opacity:1;stroke:none;font-family:Raleway;-inkscape-font-specification:Raleway Light"
+       x="17280.32"
+       y="379.11124"
+       id="text3211"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3213"
+         x="17280.32"
+         y="379.11124">put-new-coords!</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ff6600;fill-opacity:1;stroke:none;font-family:Raleway;-inkscape-font-specification:Raleway Light"
+       x="17900.455"
+       y="651.90167"
+       id="text3215"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3217"
+         x="17900.455"
+         y="651.90167">ccboard.client.evaluation.move-event</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path3219"
+       d="m 17826.651,569.47655 81.822,42.42642"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text3221"
+       y="588.26208"
+       x="17900.455"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#cccccc;fill-opacity:1;stroke:none;font-family:Raleway;-inkscape-font-specification:Raleway Light"
+       xml:space="preserve"><tspan
+         y="588.26208"
+         x="17900.455"
+         id="tspan3223"
+         sodipodi:role="line">eval-move-event!</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3225"
+       y="830.73138"
+       x="16371.731"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ff6600;fill-opacity:1;stroke:none;font-family:Raleway;-inkscape-font-specification:Raleway Light"
+       xml:space="preserve"><tspan
+         y="830.73138"
+         x="16371.731"
+         id="tspan3227"
+         sodipodi:role="line">ccboard.server.core</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ff6600;fill-opacity:1;stroke:none;font-family:Raleway;-inkscape-font-specification:Raleway Light"
+       x="16799.025"
+       y="970.13251"
+       id="text3229"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3231"
+         x="16799.025"
+         y="970.13251">ccboard.server.</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path3233"
+       d="m 16725.222,887.70737 81.822,42.4264"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text3235"
+       y="906.49286"
+       x="16799.025"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#cccccc;fill-opacity:1;stroke:none;font-family:Raleway;-inkscape-font-specification:Raleway Light"
+       xml:space="preserve"><tspan
+         y="906.49286"
+         x="16799.025"
+         id="tspan3237"
+         sodipodi:role="line">init-pieces!</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3239"
+       y="-1429.0327"
+       x="13282.559"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ff6600;fill-opacity:1;stroke:none;font-family:Raleway;-inkscape-font-specification:Raleway Light"
+       xml:space="preserve"><tspan
+         y="-1429.0327"
+         x="13282.559"
+         id="tspan3241"
+         sodipodi:role="line">ccboard.client.core</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path3243"
+       d="m 13333.607,-1362.0333 290.213,0.2892"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Raleway;-inkscape-font-specification:Raleway Light"
+       x="13345.449"
+       y="-1372.3921"
+       id="text3245"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3247"
+         x="13345.449"
+         y="-1372.3921">on-app-start!</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Raleway;-inkscape-font-specification:Raleway Light"
+       x="13692.397"
+       y="-1293.9564"
+       id="text3253"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3255"
+         x="13692.397"
+         y="-1293.9564">select-first-board!</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3257"
+       y="-1237.7064"
+       x="13692.397"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ff6600;fill-opacity:1;stroke:none;font-family:Raleway;-inkscape-font-specification:Raleway Light"
+       xml:space="preserve"><tspan
+         y="-1237.7064"
+         x="13692.397"
+         id="tspan3259"
+         sodipodi:role="line">ccboard.client.boards</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3299"
+       y="-1406.6516"
+       x="13692.397"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Raleway;-inkscape-font-specification:Raleway Light"
+       xml:space="preserve"><tspan
+         y="-1406.6516"
+         x="13692.397"
+         id="tspan3301"
+         sodipodi:role="line">on-board-select!</tspan></text>
+    <path
+       sodipodi:nodetypes="cc"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 14020.826,-1300.1615 c 244.974,14.4595 271.414,-157.8013 -6.993,-122.3496"
+       id="path3303"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ff6600;fill-opacity:1;stroke:none;font-family:Raleway;-inkscape-font-specification:Raleway Light"
+       x="14378.335"
+       y="-1328.8485"
+       id="text3305"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3307"
+         x="14378.335"
+         y="-1328.8485">ccboard.client.simple-board-session</tspan></text>
+    <path
+       sodipodi:nodetypes="cc"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 13693.79,-1389.6547 664.759,0.2892"
+       id="path3309"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Raleway;-inkscape-font-specification:Raleway Light"
+       x="14381.826"
+       y="-1377.9253"
+       id="text3311"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3313"
+         x="14381.826"
+         y="-1377.9253">create-new</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3319"
+       y="-1320.381"
+       x="15366.236"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ff6600;fill-opacity:1;stroke:none;font-family:Raleway;-inkscape-font-specification:Raleway Light"
+       xml:space="preserve"><tspan
+         y="-1320.381"
+         x="15366.236"
+         id="tspan3321"
+         sodipodi:role="line">ccboard.client.ui.svg</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3323"
+       y="-1360.7378"
+       x="15368.545"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Raleway;-inkscape-font-specification:Raleway Light"
+       xml:space="preserve"><tspan
+         y="-1360.7378"
+         x="15368.545"
+         id="tspan3325"
+         sodipodi:role="line">init-board-pieces!</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Raleway;-inkscape-font-specification:Raleway Light"
+       x="15368.545"
+       y="-1407.6128"
+       id="text3327"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3329"
+         x="15368.545"
+         y="-1407.6128">clear-board-pieces!</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path3331"
+       d="m 14375.04,-1359.9672 956.165,0.2892"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       sodipodi:nodetypes="cc" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text3333"
+       y="-1946.036"
+       x="14251.772"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#0000ff;fill-opacity:1;stroke:none;font-family:Raleway;-inkscape-font-specification:Raleway Light"
+       xml:space="preserve"><tspan
+         y="-1946.036"
+         x="14251.772"
+         id="tspan3335"
+         sodipodi:role="line">move event happens</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#0000ff;fill-opacity:1;stroke:none;font-family:Raleway;-inkscape-font-specification:Raleway Light"
+       x="14337.71"
+       y="-1891.3485"
+       id="text3337"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3339"
+         x="14337.71"
+         y="-1891.3485">move event gets sent to the server</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3341"
+       y="-1838.2235"
+       x="14450.21"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#0000ff;fill-opacity:1;stroke:none;font-family:Raleway;-inkscape-font-specification:Raleway Light"
+       xml:space="preserve"><tspan
+         y="-1838.2235"
+         x="14450.21"
+         id="tspan3343"
+         sodipodi:role="line">server bounces move to all board listeners</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#0000ff;fill-opacity:1;stroke:none;font-family:Raleway;-inkscape-font-specification:Raleway Light"
+       x="14450.21"
+       y="-1785.0985"
+       id="text3345"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3347"
+         x="14450.21"
+         y="-1785.0985">server updates server board</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3349"
+       y="-1542.769"
+       x="14445.889"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Raleway;-inkscape-font-specification:Raleway Light"
+       xml:space="preserve"><tspan
+         y="-1542.769"
+         x="14445.889"
+         id="tspan3351"
+         sodipodi:role="line">renew-connection!</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Raleway;-inkscape-font-specification:Raleway Light"
+       x="14381.826"
+       y="-1590.4253"
+       id="text3353"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3355"
+         x="14381.826"
+         y="-1590.4253">on-new-board-session!</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#800000;fill-opacity:1;stroke:none;font-family:Raleway;-inkscape-font-specification:Raleway Light"
+       x="13778.793"
+       y="-3052.6816"
+       id="text3361"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3363"
+         x="13778.793"
+         y="-3052.6816">connection happens</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3365"
+       y="-2995.7817"
+       x="13852.818"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#800000;fill-opacity:1;stroke:none;font-family:Raleway;-inkscape-font-specification:Raleway Light"
+       xml:space="preserve"><tspan
+         y="-2995.7817"
+         x="13852.818"
+         id="tspan3367"
+         sodipodi:role="line">client sends board key to server</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#800000;fill-opacity:1;stroke:none;font-family:Raleway;-inkscape-font-specification:Raleway Light"
+       x="13915.795"
+       y="-2943.8535"
+       id="text3369"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3371"
+         x="13915.795"
+         y="-2943.8535">server sends new client name and board</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3373"
+       y="-2881.4292"
+       x="14006.945"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#800000;fill-opacity:1;stroke:none;font-family:Raleway;-inkscape-font-specification:Raleway Light"
+       xml:space="preserve"><tspan
+         y="-2881.4292"
+         x="14006.945"
+         id="tspan3375"
+         sodipodi:role="line">client inits boards pieces</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#800000;fill-opacity:1;stroke:none;font-family:Raleway;-inkscape-font-specification:Raleway Light"
+       x="14006.945"
+       y="-2829.501"
+       id="text3377"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3379"
+         x="14006.945"
+         y="-2829.501">inits mouse</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3381"
+       y="-2775.9155"
+       x="14006.945"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#800000;fill-opacity:1;stroke:none;font-family:Raleway;-inkscape-font-specification:Raleway Light"
+       xml:space="preserve"><tspan
+         y="-2775.9155"
+         x="14006.945"
+         id="tspan3383"
+         sodipodi:role="line">sets client name</tspan></text>
   </g>
 </svg>

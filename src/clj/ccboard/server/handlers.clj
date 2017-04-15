@@ -7,6 +7,7 @@
     [ring.middleware.content-type :as content-type]
     [ccboard.server.html.main-page :as main-page]
     [ccboard.server.boards :as boards]
+    [ccboard.server.websockets.handler :as websockets-handler]
     )
   )
 
@@ -15,6 +16,7 @@
 
 (defroutes main-handler
   (GET "/" [] (main-page/render))
+  (GET "/ws" []  websockets-handler/ws-handler)
   (GET "/get-all-board-ids" request {
       :status 200
       :headers {"Content-Type" "application/edn"}
