@@ -20,7 +20,7 @@
       "svg"
       {
         ;"background-color" "aqua"
-        ;"border" "1px solid gray"
+        "border" "1px solid gray"
       }
       [
         ".piece"

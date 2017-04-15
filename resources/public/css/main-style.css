@@ -3,7 +3,7 @@ body {
 }
 
 svg {
-
+  border: 1px solid gray;
 }
 
 svg .piece {

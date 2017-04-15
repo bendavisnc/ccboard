@@ -4,6 +4,8 @@
     [ccboard.shared.model.board :as board]
     [ccboard.client.ui.boards-panel :as boards-panel]
     [ccboard.client.svg :as ccboard-svg]
+    [ccboard.client.mouse :as ccboard-mouse]
+
     [d3.core :as d3]
     )
 )
@@ -11,6 +13,7 @@
 (def atomic-board-ids (atom {}))
 
 (defn load-boards-from-server! [& {:keys [and-then]}]
+  "Makes a request for all board keys and uses that to populate the board panel."
   (boards-data/get-all-board-ids
     (fn [board-ids-from-server]
       (do
@@ -34,6 +37,7 @@
       (do
         (assert (= (board/board-id board-from-server) board-key))
         (ccboard-svg/init-pieces! (board/starting-positions board-from-server))
+        (ccboard-mouse/enable-mouse-drag!)
         (toggle-board-selected board-key)
         ))))
 

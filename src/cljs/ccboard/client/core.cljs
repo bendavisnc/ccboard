@@ -17,7 +17,11 @@
 ;    ))
 
 (defn on-app-start! []
-  (boards/load-boards-from-server! :and-then boards/select-first-board!))
+  (do
+    (boards/load-boards-from-server! :and-then boards/select-first-board!)))
+                                     ;#(do
+                                     ;  (boards/select-first-board!)
+                                     ;  (ccboard-mouse/enable-mouse-drag!)))))
 
 ;;
 ;; onload
