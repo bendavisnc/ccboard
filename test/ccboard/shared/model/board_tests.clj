@@ -5,10 +5,9 @@
     [clojure.test :refer :all]
     ))
 
-(def test-boards (board/create-set test-data/test-boards))
 
 (deftest tests
   (testing "board/board-id"
     (is
       (keyword?
-        (board/board-id (first (vals test-boards)))))))
+        (board/board-id (first (vals test-data/test-boards)))))))

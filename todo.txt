@@ -7,4 +7,6 @@ web server work
 front end work
 
   add websocket connection code
+
   gui work
+    - added buttons

@@ -11,11 +11,27 @@ svg .piece {
 }
 
 #piece0 {
+  fill: red;
+}
+
+#piece1 {
+  fill: white;
+}
+
+#piece2 {
   fill: blue;
 }
 
-#piece27 {
+#piece25 {
+  fill: aqua;
+}
+
+#piece26 {
   fill: pink;
+}
+
+#piece27 {
+  fill: purple;
 }
 
 #boards-panel {
@@ -51,6 +67,10 @@ svg .piece {
   overflow: hidden;
   font-size: 36px;
   color: #4d4d4d;
+}
+
+#boards-panel .board-li.selected {
+  color: white;
 }
 
 .ccboard-button img {

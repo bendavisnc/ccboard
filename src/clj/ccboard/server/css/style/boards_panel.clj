@@ -42,6 +42,11 @@
           "overflow" "hidden"
         }
       ]
+      [
+        ".board-li.selected" {
+          "color" "white"
+        }
+      ]
     ]
   ]
   )

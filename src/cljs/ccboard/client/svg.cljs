@@ -20,22 +20,27 @@
 
 (defn init-pieces! [piece-data]
   "The entry point to defining what an svg piece representation is."
-  (->
-    svg-d3
-    (d3/select* ".piece")
-    (d3/data
-      (->
-        piece-data
-        (to-creation-data)
-        (clj->js)))
-    (d3/entered)
-    (d3/append "circle")
-    (d3/attr "class" "piece")
-    (d3/attr "cx" get-x)
-    (d3/attr "cy" get-y)
-    (d3/attr "id" get-id)
-    (d3/attr "r" 50)
-    ))
+  (do
+    (->
+      svg-d3
+      (d3/select* ".piece")
+      (d3/remove))
+    (->
+      svg-d3
+      (d3/select* ".piece")
+      (d3/data
+        (->
+          piece-data
+          (to-creation-data)
+          (clj->js)))
+      (d3/entered)
+      (d3/append "circle")
+      (d3/attr "class" "piece")
+      (d3/attr "cx" get-x)
+      (d3/attr "cy" get-y)
+      (d3/attr "id" get-id)
+      (d3/attr "r" 50)
+      )))
 
 ;todo cleanup
 (defn update-piece! [piece-k, new-position & {:keys [transition-time, and-then]}]

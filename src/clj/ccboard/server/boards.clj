@@ -5,9 +5,8 @@
     )
 )
 
-(def boards-raw-input test-data/test-boards)
 
-(def loaded-boards (board/create-set boards-raw-input))
+(def loaded-boards test-data/test-boards)
 
 (defn get-board [board-k]
   (or

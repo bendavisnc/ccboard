@@ -1,27 +1,26 @@
 (ns ccboard.shared.model.board)
 
-(defprotocol IBoard
-  (move-events [this] "All of the move events that have happened relative to this board.")
-  (starting-positions [this] "The initial coord for each piece.")
-  (board-id [this] "The keyword identifier for this board."))
+;;
+;;
+;; Defines a board object.
 
 
-(defrecord Board [board-id, starting-positions, move-events]
-  IBoard
-  (move-events [this] (:move-events this))
-  (starting-positions [this] (:starting-positions this))
-  (board-id [this] (:board-id this)))
+(defn move-events [this]
+  "All of the move events that have happened relative to this board."
+  (:move-events this))
 
+(defn starting-positions [this]
+  "The initial coord for each piece."
+  (:starting-positions this))
 
-(defn create
-  ([m](map->Board m))
-  ([board-id, starting-positions, move-events]
-   (new Board board-id, starting-positions, move-events)))
+(defn board-id [this]
+  "The keyword identifier for this board."
+  (:board-id this))
 
+(defn create [board-id & {:keys [starting-positions, move-events]}]
+  {
+    :board-id board-id
+    :starting-positions starting-positions
+    :move-events move-events
+  })
 
-(defn create-set [raw-set]
-  (reduce-kv
-    (fn [acc, k, v]
-      (assoc acc k (create (merge v {:board-id k}))))
-    {}
-    raw-set))

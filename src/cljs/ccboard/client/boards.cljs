@@ -3,6 +3,8 @@
     [ccboard.client.ajax.boards-data :as boards-data]
     [ccboard.shared.model.board :as board]
     [ccboard.client.ui.boards-panel :as boards-panel]
+    [ccboard.client.svg :as ccboard-svg]
+    [d3.core :as d3]
     )
 )
 
@@ -16,17 +18,24 @@
         (boards-panel/init! board-ids-from-server)
         (when and-then (and-then))))))
 
-
-
+(defn toggle-board-selected [board-key]
+  (do
+    (->
+      (d3/select* ".board-li")
+      (d3/attr "class" "board-li"))
+    (->
+      (d3/select (str "#" (name board-key)))
+      (d3/attr "class" "board-li selected"))))
 
 (defn select-board! [board-key]
   "Selects the board associated with the given board key."
   (boards-data/get-board-data board-key
-    (fn [board-data-from-server]
+    (fn [board-from-server]
       (do
-        (println "alright?")
-        (.dir js/console
-          (board/create board-data-from-server))))))
+        (assert (= (board/board-id board-from-server) board-key))
+        (ccboard-svg/init-pieces! (board/starting-positions board-from-server))
+        (toggle-board-selected board-key)
+        ))))
 
 (defn select-first-board! []
   (select-board!
@@ -34,5 +43,3 @@
       (first @atomic-board-ids)
       (throw (new js/Error "No boards loaded.")))))
 
-
-(aset js/window "test_fn" select-first-board!)

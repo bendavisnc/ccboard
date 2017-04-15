@@ -13,21 +13,31 @@
 (def test-starting-positions-data {
   :piece0
     {:x 350, :y 200 :z 1}
-  :piece23
+  :piece1
     {:x 150, :y 300 :z 1}
-  :piece27
+  :piece2
     {:x 350, :y 400 :z 1}
   })
 
+(def test-starting-positions-data2 {
+  :piece25
+    {:x 350, :y 200 :z 1}
+  :piece26
+    {:x 750, :y 400 :z 1}
+  :piece27
+    {:x 350, :y 700 :z 1}
+  })
 
 (def test-board {
   :move-events [test-move-event]
   :starting-positions test-starting-positions-data
+  :board-id :just-a-test-board
   })
 
 (def test-board-2* {
   :move-events []
-  :starting-positions test-starting-positions-data
+  :starting-positions test-starting-positions-data2
+  :board-id :test-board-2
   })
 
 (def test-boards {
