@@ -7,6 +7,7 @@
    [ccboard.client.svg :as ccboard-svg]
    [ccboard.client.playground]
    [ccboard.client.boards :as boards]
+   [ccboard.client.async.movement.local]
    )
 )
 

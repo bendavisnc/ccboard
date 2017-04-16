@@ -12,13 +12,14 @@
 
 (def atomic-board-ids (atom {}))
 
+(declare select-board!)
 (defn load-boards-from-server! [& {:keys [and-then]}]
   "Makes a request for all board keys and uses that to populate the board panel."
   (boards-data/get-all-board-ids
     (fn [board-ids-from-server]
       (do
         (reset! atomic-board-ids board-ids-from-server)
-        (boards-panel/init! board-ids-from-server)
+        (boards-panel/init! board-ids-from-server :on-board-item-click! select-board!)
         (when and-then (and-then))))))
 
 (defn toggle-board-selected [board-key]

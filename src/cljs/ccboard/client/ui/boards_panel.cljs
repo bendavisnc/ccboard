@@ -1,11 +1,10 @@
 (ns ccboard.client.ui.boards-panel
   (:require
     [d3.core :as d3]
-    [ccboard.client.boards :as boards]
-    )
+  )
 )
 
-(defn init! [piece-keys]
+(defn init! [piece-keys & {:keys [on-board-item-click!]}]
   (->
     (d3/select "#boards-panel-items-container")
     (d3/select* ".board-li")
@@ -21,5 +20,5 @@
     ;(d3/on "mouseover"
     (d3/on "click"
       (fn [d]
-        (boards/select-board! (keyword d))))
+        (on-board-item-click! (keyword d))))
     ))

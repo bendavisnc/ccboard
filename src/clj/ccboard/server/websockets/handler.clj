@@ -24,20 +24,36 @@
 
 (defmulti websocket-client-reactions ws-event-resolver)
 
+(def connections->client-ids (atom {})) ;todo - revisit
+
 (defmethod websocket-client-reactions :board-key-received [[conn, board-key]]
   (do
-    (logging/info "board request recieved: " board-key)
-    (httpkit-server/send! conn (pr-str {:new-client-id (new-client-id) :board (boards/get-board board-key)}))))
+    (logging/info "board request received: " board-key)
+    (let [red-hot-client-id (new-client-id)]
+      (do
+        (httpkit-server/send! conn (pr-str {:new-client-id red-hot-client-id :board (boards/get-board board-key)}))
+        (swap! connections->client-ids assoc conn red-hot-client-id)
+        (boards/add-new-board-listener!
+          :board board-key
+          :client-id red-hot-client-id
+          :on-new-move-event!
+            (fn [e] (httpkit-server/send! conn (pr-str e))))))))
 
 (defmethod websocket-client-reactions :client-session-over [[conn, _]]
-  (logging/info "client session over"))
+  (do
+    (boards/remove-board-listener! (@connections->client-ids conn))
+    (logging/info "client session over")))
+
+;(defn update-board-listeners! [new-move-event]
 
 (defmethod websocket-client-reactions :move-event-received [[conn, new-move-event]]
-  (logging/info
-    "new move event with piece: "
-    (move-event/piece new-move-event)
-    " \nmove size: "
-    (count (move-event/movement-data new-move-event))))
+  (do
+    (logging/info
+      "new move event with piece: "
+      (move-event/as-str new-move-event))
+    (boards/update-board! new-move-event)
+    (boards/update-board-listeners! new-move-event)
+    ))
 
 (defn ws-handler [request]
   (httpkit-server/with-channel request conn
