@@ -5,7 +5,7 @@
     [ccboard.client.ui.boards-panel :as boards-panel]
     [ccboard.client.svg :as ccboard-svg]
     [ccboard.client.mouse :as ccboard-mouse]
-    [ccboard.client.simple-board-session :as simple-board-session]
+    [ccboard.client.websocket-board-session :as websocket-board-session]
     [d3.core :as d3]
     )
 )
@@ -32,7 +32,7 @@
 
 (defn on-board-select! [newly-selected-board-key]
   (do
-    (simple-board-session/create-new newly-selected-board-key)
+    (websocket-board-session/create-new newly-selected-board-key)
     (toggle-board-selected newly-selected-board-key)))
 
 

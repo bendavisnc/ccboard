@@ -34,3 +34,12 @@
     :end-time end-time
     :move-realized? move-realized?
   })
+
+(defn move-event? [e]
+  (boolean
+    (and
+      (:piece e)
+      (:movement-data e)
+      (:start-time e)
+      (:end-time e)
+      (:move-realized? e))))

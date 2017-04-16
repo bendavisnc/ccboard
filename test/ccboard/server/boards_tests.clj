@@ -7,6 +7,6 @@
 
 (deftest tests
   (testing "boards/good-board-key?"
-    (boards/good-board-key? :just-a-test-bard)))
+    (boards/board-key? :just-a-test-bard)))
 
 

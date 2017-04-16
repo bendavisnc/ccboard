@@ -24,15 +24,6 @@
         (pr-str
           (boards/get-all-board-keys))
     })
-  (params/wrap-params
-    (GET "/get-board-data" request {
-        :status 200
-        :headers {"Content-Type" "application/edn"}
-        :body
-          (pr-str
-            (into {}
-              (boards/get-board (keyword (get-in request [:query-params "board-key"])))))
-      }))
   (route/resources "/")
   (route/not-found "<h1>Page not found</h1>"))
 

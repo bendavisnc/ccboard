@@ -1,4 +1,4 @@
-(ns ccboard.client.simple-board-session
+(ns ccboard.client.websocket-board-session
   (:require [ccboard.client.svg :as ccboard-svg]
             [ccboard.shared.model.board :as board]
             [ccboard.client.mouse :as ccboard-mouse]
@@ -9,12 +9,14 @@
 ;; Defines simple functionality that revolves around one board and one websocket connection.
 
 
-(def selected-board-key (atom nil))
+;;
+;; The current selected board key.
+(def ^:private selected-board-key (atom nil))
 
-(defn send-board-request! [conn, ^Keyword board-key]
+(defn ^:private send-board-request! [conn, ^Keyword board-key]
   (.send conn board-key))
 
-(defn ws-event-resolver [[_, e]]
+(defn ^:private ws-event-resolver [[_, e]]
   (cond
     (= (aget e "type") "open")
       :new-board-session
@@ -28,42 +30,36 @@
 
 
 
-(defmulti websocket-server-reactions ws-event-resolver)
+(defmulti ^:private websocket-server-reactions ws-event-resolver)
 
 ;;
 ;; What to do right when a connection is established:
 ;;   Tell the server what board data we want.
-(defmethod websocket-server-reactions :new-board-session [[conn, e]]
+(defmethod ^:private websocket-server-reactions :new-board-session [[conn, e]]
   (send-board-request! conn @selected-board-key))
 
+
+(defn start-new-session! [new-pieces]
+  (do
+    (ccboard-svg/init-pieces! new-pieces)
+    (ccboard-mouse/enable-mouse-drag!)))
 ;;
 ;; What to do when we receive new board data:
 ;;   Draw the new pieces.
 ;;   Activate the corresponding mouse listeners for piece dragging.
-(defmethod websocket-server-reactions :new-session-data-received [[conn, new-data]]
+(defmethod ^:private websocket-server-reactions :new-session-data-received [[conn, new-data]]
   (let [[new-client-id, new-board] ((juxt :new-client-id :board) new-data)]
-    (do
-      (ccboard-svg/init-pieces! (board/starting-positions new-board))
-      (ccboard-mouse/enable-mouse-drag!))))
-      ;(println new-client-id)
-      ;(println new-board))))
-
-;(defn get-board-selected-key []
-;  (->
-;    ".board-li.selected"
-;    (d3/select)
-;    (d3/datum)
-;    keyword))
+    (start-new-session! (board/starting-positions new-board))))
 
 ; todo - cleanup
-(defn add-ws-open-event-listener [conn]
+(defn ^:private add-ws-open-event-listener [conn]
   (.addEventListener conn "open"
-                     (fn [e]
+    (fn [e]
       (websocket-server-reactions [conn, e]))))
 
-(defn add-ws-recieve-event-listener [conn]
+(defn ^:private add-ws-recieve-event-listener [conn]
   (.addEventListener conn "message"
-                     (fn [e]
+    (fn [e]
       (let [
           parsed-data
             (->
@@ -72,49 +68,37 @@
         ]
         (websocket-server-reactions [conn, parsed-data])))))
 
-(defn add-all-ws-event-listeners [conn]
+(defn ^:private add-all-ws-event-listeners [conn]
   (do
     (add-ws-open-event-listener conn)
     (add-ws-recieve-event-listener conn)
     ))
 
+(def ^:private connection-atom (atom nil))
 
-
-(def connection-atom (atom nil))
 (add-watch connection-atom :every-new-connection
   (fn [k r old-conn new-conn]
     (do
       (when old-conn (.close old-conn))
       (add-all-ws-event-listeners new-conn))))
-      ;(set! (.-onopen new-conn)
-      ;  (fn [e]
-      ;    (send-board-
-      ;    ))
-      ;(set! (.-onerror new-conn)
-      ;  (fn [e]
-      ;    (println "bad! " e)))
-      ;(set! (.-onmessage new-conn)
-      ;  (fn [e]
-      ;    (println "message! " e))))))
 
+(defn get-connection []
+  (or
+    (deref connection-atom)
+    (throw (new js/Error "Connection unavailable."))))
 
-(defn renew-connection! [new-board-key & {:keys [and-then]}]
+(defn ^:private renew-connection! [new-board-key]
   (do
     (reset! selected-board-key new-board-key)
-    (reset! connection-atom (js/WebSocket. "ws://localhost:3000/ws")))
-    (when and-then (and-then)))
+    (reset! connection-atom (js/WebSocket. "ws://localhost:3000/ws"))))
 
-(defn on-new-board-session! [session-board-key]
+(defn ^:private on-new-board-session! [session-board-key]
   (renew-connection! session-board-key))
-
-;(defn on-new-board-session! [session-board-key]
-;  (renew-connection!
-;    :and-then
-;      #(do
-;        (ccboard-svg/init-pieces! (board/starting-positions session-board))
-;        (ccboard-mouse/enable-mouse-drag!))))
-
 
 (defn create-new [session-board-key]
   (on-new-board-session! session-board-key))
+
+(defn send-server-move-event! [e]
+  (.send (get-connection) e))
+
 

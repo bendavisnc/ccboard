@@ -15,7 +15,7 @@
 
 (defn get-all-board-keys [] (keys loaded-boards))
 
-(defn good-board-key? [board-key]
+(defn board-key? [board-key]
   "Returns the board key if present in the loaded board keys, otherwise nil."
   (->
     (get-all-board-keys)

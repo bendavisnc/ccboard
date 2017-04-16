@@ -2,26 +2,49 @@
   (:require
     [org.httpkit.server :as httpkit-server]
     [ccboard.server.boards :as boards]
+    [clojure.tools.logging :as logging]
+    [ccboard.shared.model.move-event :as move-event]
     )
 
 )
 
-(defn new-client-id []
+(defn ^:private new-client-id []
   (gensym "ccboard-client"))
 
-(defn on-recieve! [ws-chan e]
-  (or
-    (if-let [board-key (boards/good-board-key? (read-string e))]
-      (httpkit-server/send! ws-chan (pr-str {:new-client-id (new-client-id) :board (boards/get-board board-key)}))
-      true)
-    (throw (new Exception (str "Unhandled web socket message." e)))))
+(defn ^:private ws-event-resolver [[_, e]]
+  (cond
+    (= e :close-event)
+      :client-session-over
+    (boards/board-key? e)
+      :board-key-received
+    (move-event/move-event? e)
+      :move-event-received
+    :else
+      (throw (new Exception (str "Unhandled websocket event from client." e)))))
 
+(defmulti websocket-client-reactions ws-event-resolver)
+
+(defmethod websocket-client-reactions :board-key-received [[conn, board-key]]
+  (do
+    (logging/info "board request recieved: " board-key)
+    (httpkit-server/send! conn (pr-str {:new-client-id (new-client-id) :board (boards/get-board board-key)}))))
+
+(defmethod websocket-client-reactions :client-session-over [[conn, _]]
+  (logging/info "client session over"))
+
+(defmethod websocket-client-reactions :move-event-received [[conn, new-move-event]]
+  (logging/info
+    "new move event with piece: "
+    (move-event/piece new-move-event)
+    " \nmove size: "
+    (count (move-event/movement-data new-move-event))))
 
 (defn ws-handler [request]
-  (httpkit-server/with-channel request channel
+  (httpkit-server/with-channel request conn
     (do
-      (httpkit-server/on-close channel
-        (fn [args] (println "s: closed!")))
-      (httpkit-server/on-receive channel (partial on-recieve! channel))
-        ;(fn [args] (println "s: recieved! " args))
+      (httpkit-server/on-close conn
+        (fn [e]
+          (websocket-client-reactions [conn, :close-event])))
+      (httpkit-server/on-receive conn
+        #(websocket-client-reactions [conn, (read-string %)]))
         )))

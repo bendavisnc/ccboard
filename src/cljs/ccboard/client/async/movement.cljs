@@ -4,7 +4,9 @@
   (:require
     [cljs.core.async :as async]
     [ccboard.shared.model.move-event :as move-event]
-    [ccboard.client.evaluation.move-event :as move-event-eval])
+    [ccboard.client.evaluation.move-event :as move-event-eval]
+    [ccboard.client.websocket-board-session :as board-session]
+    )
 )
 
 
@@ -62,7 +64,8 @@
 (async-macros/go
   (while true
     (let [next-local-move-event (async/<! local-move-events)]
-      (println "Hey I'm a new move-event! " (move-event/piece next-local-move-event)))))
+      (board-session/send-server-move-event! next-local-move-event))))
+      ;(println "Hey I'm a new move-event! " (move-event/piece next-local-move-event)))))
 
 
 ;;
