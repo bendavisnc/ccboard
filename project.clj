@@ -8,6 +8,7 @@
     [lein-garden "0.3.0"]
     [lein-cljsbuild "1.1.5"]
     [lein-auto "0.1.3"]
+    [lein-kibit "0.1.3"]
     ]
   :dependencies [
     [ring/ring-core "1.5.0"]

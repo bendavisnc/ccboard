@@ -30,21 +30,25 @@
       (d3/select (str "#" (name board-key)))
       (d3/attr "class" "board-li selected"))))
 
-(defn on-board-select! [newly-selected-board]
+(defn on-board-select! [newly-selected-board-key]
   (do
-    (simple-board-session/create-new newly-selected-board)
-    (toggle-board-selected (board/board-id newly-selected-board))))
+    (simple-board-session/create-new newly-selected-board-key)
+    (toggle-board-selected newly-selected-board-key)))
 
 
 
 (defn select-board! [board-key]
   "Selects the board associated with the given board key."
-  (boards-data/get-board-data board-key
-    (fn [board-from-server]
-      (do
-        (assert (= (board/board-id board-from-server) board-key))
-        (on-board-select! board-from-server)
-        ))))
+  (on-board-select! board-key))
+
+;(defn select-board! [board-key]
+;  "Selects the board associated with the given board key."
+;  (boards-data/get-board-data board-key
+;    (fn [board-from-server]
+;      (do
+;        (assert (= (board/board-id board-from-server) board-key))
+;        (on-board-select! board-from-server)
+;        ))))
 
 (defn select-first-board! []
   (select-board!

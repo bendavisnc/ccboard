@@ -14,3 +14,11 @@
     (throw (new Exception "Board not found."))))
 
 (defn get-all-board-keys [] (keys loaded-boards))
+
+(defn good-board-key? [board-key]
+  "Returns the board key if present in the loaded board keys, otherwise nil."
+  (->
+    (get-all-board-keys)
+    set
+    board-key))
+
