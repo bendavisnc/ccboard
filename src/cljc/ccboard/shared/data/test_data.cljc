@@ -29,7 +29,8 @@
   })
 
 (def test-board {
-  :move-events [test-move-event]
+  ;:move-events [test-move-event]
+  :move-events []
   :starting-positions test-starting-positions-data
   :board-id :just-a-test-board
   })

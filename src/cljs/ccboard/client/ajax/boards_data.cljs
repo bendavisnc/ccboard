@@ -11,13 +11,3 @@
       })
       callback-fn))
 
-
-(defn get-board-data [board-key callback-fn]
-  (jayq/done
-    (jayq/ajax
-      {
-       :url "get-board-data"
-       :type "get"
-       :data {:board-key board-key}
-       })
-    callback-fn))

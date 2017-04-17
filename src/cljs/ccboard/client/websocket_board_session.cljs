@@ -1,9 +1,10 @@
 (ns ccboard.client.websocket-board-session
-  (:require [ccboard.client.svg :as ccboard-svg]
+  (:require [ccboard.client.ui.svg :as ccboard-svg]
             [ccboard.shared.model.board :as board]
             [ccboard.shared.model.move-event :as move-event]
             [ccboard.client.async.movement.from-server :as async-movement]
             [ccboard.client.mouse :as ccboard-mouse]
+            [ccboard.client.evaluation.move-event :as move-event-evaluation]
             [d3.core :as d3]
             [ccboard.shared.constants :as shared-constants]))
 
@@ -11,6 +12,8 @@
 ;;
 ;;
 ;; Defines simple functionality that revolves around one board and one websocket connection.
+;;   A new board session is created each time a selection is made from the panel or automatically
+;;   when the page loads.
 
 
 ;;
@@ -47,18 +50,18 @@
   (send-board-request! conn @selected-board-key))
 
 
-(defn start-new-session! [new-client-id, new-pieces]
+(defn start-new-session! [new-client-id, new-board]
   (do
     (reset! current-client-id new-client-id)
-    (ccboard-svg/init-pieces! new-pieces)
+    (ccboard-svg/init-pieces! (board/starting-positions new-board))
+    ;(println (count (board/move-events new-board)))
+    ;(move-event-evaluation/eval-move-events! (board/move-events new-board) :skip-animation? true)
+    (move-event-evaluation/eval-move-events! (board/move-events new-board) :skip-animation? false)
     (ccboard-mouse/enable-mouse-drag!)))
-;;
-;; What to do when we receive new board data:
-;;   Draw the new pieces.
-;;   Activate the corresponding mouse listeners for piece dragging.
+
 (defmethod ^:private websocket-server-reactions :new-session-data-received [[conn, new-data]]
   (let [[new-client-id, new-board] ((juxt :new-client-id :board) new-data)]
-    (start-new-session! new-client-id (board/starting-positions new-board))))
+    (start-new-session! new-client-id new-board)))
 
 (defmethod ^:private websocket-server-reactions :new-from-server-move-event [[conn, new-move-event]]
   (println "received new event from server! " (move-event/as-str new-move-event))

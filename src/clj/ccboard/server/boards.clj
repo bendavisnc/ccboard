@@ -49,5 +49,20 @@
           (send-fn new-move-event))))))
 
 
+;;
+;; for debugging
+
+(defn print-boards-data []
+  (dorun
+    (for [board-k (get-all-board-keys)]
+      (do
+        (println "----------------------------")
+        (println "board: " board-k)
+        (println "moves: " (count (board/move-events (get-board board-k))))
+        (println "----------------------------")
+        (println)
+        ))))
+
+
 
 

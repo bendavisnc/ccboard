@@ -1,7 +1,7 @@
 (ns ccboard.client.mouse
   (:require
     [ccboard.client.async.movement.local-chans :as async-movement]
-    [ccboard.client.svg :as ccboard-svg]
+    [ccboard.client.ui.svg :as ccboard-svg]
     [ccboard.client.d3-helpers :as d3-helpers]
     [ccboard.shared.model.coord :as coord]
     [d3.core :as d3])

@@ -1,4 +1,4 @@
-(ns ccboard.client.svg
+(ns ccboard.client.ui.svg
   (:require
     [d3.core :as d3]
     [ccboard.client.d3-helpers :refer [get-x, get-y, get-id]]

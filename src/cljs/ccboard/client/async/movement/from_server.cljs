@@ -3,12 +3,9 @@
     [cljs.core.async.macros :as async-macros])
   (:require
     [cljs.core.async :as async]
-    [ccboard.shared.model.move-event :as move-event]
     [ccboard.client.evaluation.move-event :as move-event-eval]
     )
 )
-
-
 
 (def from-server-move-events (async/chan))
 
