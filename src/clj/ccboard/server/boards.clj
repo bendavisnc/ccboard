@@ -3,6 +3,7 @@
     [ccboard.shared.data.test-data :as test-data]
     [ccboard.shared.model.board :as board]
     [ccboard.shared.model.move-event :as move-event]
+    [ccboard.server.piece-generation :as piece-generation]
     )
 )
 
@@ -10,7 +11,16 @@
 ;;
 ;; The in-memory warehousing of all existing boards.
 
-(def loaded-boards (atom test-data/test-boards))
+(def the-standard-board
+  (board/create :board-0
+    :starting-positions piece-generation/generated-pieces))
+
+(def loaded-boards
+  (atom
+    {
+     (board/board-id the-standard-board)
+       the-standard-board
+    }))
 
 (defn get-board [board-k]
   (or

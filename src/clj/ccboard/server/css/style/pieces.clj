@@ -8,5 +8,6 @@
     ["#piece25", {"fill" "aqua"}],
     ["#piece26", {"fill" "pink"}],
     ["#piece27", {"fill" "purple"}],
+    [".piece", {"fill" "purple"}],
   ]
   )

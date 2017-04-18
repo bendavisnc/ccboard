@@ -16,3 +16,9 @@
     :y y
     :z (or z 1)
   })
+
+(defn to-vec [this]
+  [(x this) (y this)])
+
+(defn from-vec [[x, y]]
+  (create :x x :y y))

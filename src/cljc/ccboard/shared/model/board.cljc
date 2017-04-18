@@ -21,6 +21,7 @@
   {
     :board-id board-id
     :starting-positions starting-positions
-    :move-events move-events
+    :move-events (or move-events [])
   })
+
 

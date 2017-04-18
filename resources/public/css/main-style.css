@@ -34,6 +34,10 @@ svg .piece {
   fill: purple;
 }
 
+.piece {
+  fill: purple;
+}
+
 #boards-panel {
   width: 400px;
   height: 90vh;

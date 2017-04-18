@@ -2,6 +2,7 @@
   (:require
     [d3.core :as d3]
     [ccboard.client.d3-helpers :refer [get-x, get-y, get-id]]
+    [ccboard.shared.constants :as constants]
     ))
 
 ;;
@@ -36,10 +37,13 @@
       (d3/entered)
       (d3/append "circle")
       (d3/attr "class" "piece")
+      ;(d3/transition)
+      ;(d3/duration 2000)
+      ;(.ease (aget js/d3 "easeBounce"))
       (d3/attr "cx" get-x)
       (d3/attr "cy" get-y)
       (d3/attr "id" get-id)
-      (d3/attr "r" 50)
+      (d3/attr "r" (* constants/piece-radius constants/board-width))
       )))
 
 ;todo cleanup
