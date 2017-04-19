@@ -1,8 +1,7 @@
 (ns ccboard.server.html.basic-template
   (:require
-    [ccboard.constants :as constants]
     [hiccup.page :refer [html5]]
-  )
+    [ccboard.shared.constants :as constants])
   )
 
 ;;

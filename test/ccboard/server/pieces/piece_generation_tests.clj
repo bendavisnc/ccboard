@@ -1,6 +1,6 @@
-(ns ccboard.server.piece-generation-tests
+(ns ccboard.server.pieces.piece-generation-tests
   (:require
-    [ccboard.server.piece-generation :as piece-generation]
+    [ccboard.server.pieces.piece-generation :as piece-generation]
     [ccboard.shared.model.coord :as coord]
     [ccboard.shared.constants :as constants]
     [clojure.test :refer :all]

@@ -12,8 +12,6 @@
   )
 
 
-;[alleycat.server.html.main-page :as main-page]
-
 (defroutes main-handler
   (GET "/" [] (main-page/render))
   (GET "/ws" []  websockets-handler/ws-handler)

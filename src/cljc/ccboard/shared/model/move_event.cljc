@@ -29,11 +29,6 @@
   "The board id that's the board of this move."
   (:board this))
 
-;(defn move-realized? [this]
-;  "Whether this move is expected to ALREADY be reflected on the current client's board (svg dom)."
-;  (:move-realized? this))
-
-;(defn create [piece, & {:keys [movement-data, start-time, end-time, move-realized?]}]
 (defn create [piece, board, comitter & {:keys [movement-data, start-time, end-time]}]
   "Convenience constructor that takes a piece key and all of the relevent move event data."
   {
@@ -45,7 +40,7 @@
     :end-time end-time
   })
 
-(defn move-event? [e]
+(defn move-event? [e] ; todo - revisit
   (boolean
     (and
       (:piece e)
@@ -54,7 +49,6 @@
       (:movement-data e)
       (:start-time e)
       (:end-time e)
-      ;(:move-realized? e)
       )))
 
 (defn as-str [e]

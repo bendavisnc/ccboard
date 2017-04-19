@@ -1,6 +1,9 @@
 (ns ccboard.shared.constants)
 
 ;;
+;; Strings
+(def app-name "chinese checkers")
+
 ;;
 ;; Technical
 
@@ -8,7 +11,6 @@
 (def site-address "192.168.1.128:3000")
 
 
-;;
 ;;
 ;; UI
 

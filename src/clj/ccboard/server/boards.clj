@@ -1,9 +1,8 @@
 (ns ccboard.server.boards
   (:require
-    [ccboard.shared.data.test-data :as test-data]
     [ccboard.shared.model.board :as board]
     [ccboard.shared.model.move-event :as move-event]
-    [ccboard.server.piece-generation :as piece-generation]
+    [ccboard.server.pieces.piece-generation :as piece-generation]
     )
 )
 
@@ -41,7 +40,7 @@
     ))
 
 ;; an atomic Map
-;; client-id -> boards-listening-to -> that board's channel
+;; client-id -> boards-listening-to -> a send move function
 (def all-board-listeners (atom {}))
 
 (defn add-new-board-listener! [& {:keys [board, client-id, on-new-move-event!]}]
@@ -54,7 +53,7 @@
   "Send the move event to all of the current board listeners."
   (dorun
     (for [listener-key (keys @all-board-listeners)]
-      (when (not (= listener-key (move-event/comitter new-move-event)))
+      (when (not (= listener-key (move-event/comitter new-move-event))) ; Don't resend to the original sender
         (when-let [send-fn (get-in @all-board-listeners [listener-key (move-event/board new-move-event)])]
           (send-fn new-move-event))))))
 
