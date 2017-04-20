@@ -19,32 +19,47 @@
         (assoc v :id (name k))))
     [] piece-data))
 
-(defn init-pieces! [piece-data]
-  "The entry point to defining what an svg piece representation is."
-  (do
-    (->
-      svg-d3
-      (d3/select* ".piece")
-      (d3/remove))
-    (->
-      svg-d3
-      (d3/select* ".piece")
-      (d3/data
-        (->
-          piece-data
-          (to-creation-data)
-          (clj->js)))
-      (d3/entered)
-      (d3/append "circle")
-      (d3/attr "class" "piece")
-      ;(d3/transition)
-      ;(d3/duration 2000)
-      ;(.ease (aget js/d3 "easeBounce"))
-      (d3/attr "cx" get-x)
-      (d3/attr "cy" get-y)
-      (d3/attr "id" get-id)
-      (d3/attr "r" (* constants/piece-radius constants/board-width))
-      )))
+(defn clear-pieces! []
+  (->
+    svg-d3
+    (d3/select* ".piece")
+    (d3/remove)))
+
+(defn init-player-pieces! [piece-data]
+  (->
+    svg-d3
+    (d3/select* ".player-piece")
+    (d3/data
+      (->
+        piece-data
+        (to-creation-data)
+        (clj->js)))
+    (d3/entered)
+    (d3/append "circle")
+    (d3/attr "class" "piece player-piece")
+    (d3/attr "cx" get-x)
+    (d3/attr "cy" get-y)
+    (d3/attr "id" get-id)
+    (d3/attr "r" (* constants/piece-radius constants/board-width))
+    ))
+
+(defn init-static-pieces! [piece-data]
+  (->
+    svg-d3
+    (d3/select* ".static-piece")
+    (d3/data
+      (->
+        piece-data
+        (to-creation-data)
+        (clj->js)))
+    (d3/entered)
+    (d3/append "circle")
+    (d3/attr "class" "piece static-piece")
+    (d3/attr "cx" get-x)
+    (d3/attr "cy" get-y)
+    (d3/attr "id" get-id)
+    (d3/attr "r" (* constants/piece-radius constants/board-width))
+    ))
 
 ;todo cleanup
 (defn update-piece! [piece-k, new-position & {:keys [transition-time, and-then]}]

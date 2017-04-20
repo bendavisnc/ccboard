@@ -12,7 +12,9 @@
 
 (def the-standard-board
   (board/create :board-0
-    :starting-positions piece-generation/generated-pieces))
+    :player-pieces piece-generation/all-player-pieces
+    :static-pieces piece-generation/all-static-pieces
+    ))
 
 (def loaded-boards
   (atom

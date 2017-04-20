@@ -47,6 +47,17 @@
           "color" "white"
         }
       ]
+      [
+        "#new-board-input" {
+          ;"font-size" "36px"
+          ;"font-family" "monospace"
+          ;"line-height" "100px"
+          ;"width" "200px"
+          ;"vertical-align" "middle"
+          ;"width" "100%"
+          ;"height" "100px"
+        }
+      ]
     ]
   ]
   )

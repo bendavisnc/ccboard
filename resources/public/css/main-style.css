@@ -3,39 +3,255 @@ body {
 }
 
 svg {
-  border: 1px solid gray;
+
 }
 
 svg .piece {
   cursor: move;
 }
 
-#piece0 {
-  fill: red;
+.static-piece {
+  fill: #999;
 }
 
-#piece1 {
+#player-piece5 {
+  fill: #aaff01;
+}
+
+#player-piece1 {
+  fill: #aaff01;
+}
+
+#player-piece3 {
+  fill: #aaff01;
+}
+
+#player-piece4 {
+  fill: #aaff01;
+}
+
+#player-piece9 {
+  fill: #aaff01;
+}
+
+#player-piece7 {
+  fill: #aaff01;
+}
+
+#player-piece2 {
+  fill: #aaff01;
+}
+
+#player-piece6 {
+  fill: #aaff01;
+}
+
+#player-piece0 {
+  fill: #aaff01;
+}
+
+#player-piece8 {
+  fill: #aaff01;
+}
+
+#player-piece46 {
+  fill: #ffaa01;
+}
+
+#player-piece19 {
+  fill: #ffaa01;
+}
+
+#player-piece55 {
+  fill: #ffaa01;
+}
+
+#player-piece44 {
+  fill: #ffaa01;
+}
+
+#player-piece23 {
+  fill: #ffaa01;
+}
+
+#player-piece36 {
+  fill: #ffaa01;
+}
+
+#player-piece25 {
+  fill: #ffaa01;
+}
+
+#player-piece21 {
+  fill: #ffaa01;
+}
+
+#player-piece32 {
+  fill: #ffaa01;
+}
+
+#player-piece34 {
+  fill: #ffaa01;
+}
+
+#player-piece108 {
+  fill: #ff00aa;
+}
+
+#player-piece110 {
+  fill: #ff00aa;
+}
+
+#player-piece85 {
+  fill: #ff00aa;
+}
+
+#player-piece75 {
+  fill: #ff00aa;
+}
+
+#player-piece87 {
+  fill: #ff00aa;
+}
+
+#player-piece100 {
+  fill: #ff00aa;
+}
+
+#player-piece98 {
+  fill: #ff00aa;
+}
+
+#player-piece109 {
+  fill: #ff00aa;
+}
+
+#player-piece96 {
+  fill: #ff00aa;
+}
+
+#player-piece107 {
+  fill: #ff00aa;
+}
+
+#player-piece116 {
+  fill: #ab00ff;
+}
+
+#player-piece115 {
+  fill: #ab00ff;
+}
+
+#player-piece120 {
+  fill: #ab00ff;
+}
+
+#player-piece114 {
+  fill: #ab00ff;
+}
+
+#player-piece118 {
+  fill: #ab00ff;
+}
+
+#player-piece111 {
+  fill: #ab00ff;
+}
+
+#player-piece113 {
+  fill: #ab00ff;
+}
+
+#player-piece112 {
+  fill: #ab00ff;
+}
+
+#player-piece117 {
+  fill: #ab00ff;
+}
+
+#player-piece119 {
+  fill: #ab00ff;
+}
+
+#player-piece88 {
   fill: white;
 }
 
-#piece2 {
-  fill: blue;
+#player-piece95 {
+  fill: white;
 }
 
-#piece25 {
-  fill: aqua;
+#player-piece86 {
+  fill: white;
 }
 
-#piece26 {
-  fill: pink;
+#player-piece99 {
+  fill: white;
 }
 
-#piece27 {
-  fill: purple;
+#player-piece101 {
+  fill: white;
 }
 
-.piece {
-  fill: purple;
+#player-piece76 {
+  fill: white;
+}
+
+#player-piece74 {
+  fill: white;
+}
+
+#player-piece65 {
+  fill: white;
+}
+
+#player-piece97 {
+  fill: white;
+}
+
+#player-piece84 {
+  fill: white;
+}
+
+#player-piece35 {
+  fill: #00aaff;
+}
+
+#player-piece22 {
+  fill: #00aaff;
+}
+
+#player-piece11 {
+  fill: #00aaff;
+}
+
+#player-piece33 {
+  fill: #00aaff;
+}
+
+#player-piece10 {
+  fill: #00aaff;
+}
+
+#player-piece24 {
+  fill: #00aaff;
+}
+
+#player-piece12 {
+  fill: #00aaff;
+}
+
+#player-piece20 {
+  fill: #00aaff;
+}
+
+#player-piece13 {
+  fill: #00aaff;
+}
+
+#player-piece45 {
+  fill: #00aaff;
 }
 
 #boards-panel {
@@ -75,6 +291,10 @@ svg .piece {
 
 #boards-panel .board-li.selected {
   color: white;
+}
+
+#boards-panel #new-board-input {
+
 }
 
 .ccboard-button img {

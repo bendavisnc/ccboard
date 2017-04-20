@@ -7,9 +7,6 @@
     )
 )
 
-;;
-;;
-;;
 (def atomic-board-ids (atom {}))
 
 (declare select-board!)
@@ -43,14 +40,6 @@
   "Selects the board associated with the given board key."
   (on-board-select! board-key))
 
-;(defn select-board! [board-key]
-;  "Selects the board associated with the given board key."
-;  (boards-data/get-board-data board-key
-;    (fn [board-from-server]
-;      (do
-;        (assert (= (board/board-id board-from-server) board-key))
-;        (on-board-select! board-from-server)
-;        ))))
 
 (defn select-first-board! []
   (select-board!

@@ -14,9 +14,9 @@
 ;;
 ;; UI
 
-(def board-width 800)
+(def board-width 1200)
 (def board-height board-width)
 
-;(def piece-radius 0.05)
-(def piece-radius 0.025)
 (def board-side-length 13)
+
+(def piece-radius 0.025)

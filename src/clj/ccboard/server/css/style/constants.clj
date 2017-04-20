@@ -11,12 +11,12 @@
 (def main-background-color "#272822")
 ;(def main-background-color "yellow")
 (def noplayer-color "#999")
-(def player1-color "#aaff01")
-(def player2-color "#ffaa01")
-(def player3-color "#ff00aa")
-(def player4-color "#ab00ff")
-(def player5-color "white")
-(def player6-color "#00aaff")
+(def player-one-color "#aaff01")
+(def player-two-color "#ffaa01")
+(def player-three-color "#ff00aa")
+(def player-four-color "#ab00ff")
+(def player-five-color "white")
+(def player-six-color "#00aaff")
 
 ;;
 ;; dimensions

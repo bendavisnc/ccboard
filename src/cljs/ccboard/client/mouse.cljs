@@ -37,7 +37,7 @@
 
 (defn enable-mouse-drag! []
   (.call
-    (d3/select* ".piece")
+    (d3/select* ".player-piece")
     (->
       (.drag js/d3)
       (.on "start" on-drag-start!)

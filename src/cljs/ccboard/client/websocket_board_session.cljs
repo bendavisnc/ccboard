@@ -53,9 +53,9 @@
 (defn start-new-session! [new-client-id, new-board]
   (do
     (reset! current-client-id new-client-id)
-    (ccboard-svg/init-pieces! (board/starting-positions new-board))
-    ;(println (count (board/move-events new-board)))
-    ;(move-event-evaluation/eval-move-events! (board/move-events new-board) :skip-animation? true)
+    (ccboard-svg/clear-pieces!)
+    (ccboard-svg/init-static-pieces! (board/static-pieces new-board))
+    (ccboard-svg/init-player-pieces! (board/player-pieces new-board))
     (move-event-evaluation/eval-move-events! (board/move-events new-board) :skip-animation? false)
     (ccboard-mouse/enable-mouse-drag!)))
 
