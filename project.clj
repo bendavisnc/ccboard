@@ -9,9 +9,11 @@
     [lein-cljsbuild "1.1.5"]
     [lein-auto "0.1.3"]
     [lein-kibit "0.1.3"]
+    ;[lein-autoreload "0.1.1"]
     ]
   :dependencies [
     [ring/ring-core "1.5.0"]
+    [ring/ring-devel "1.5.0"]
     [hiccup "1.0.5"],
     ;[reagent "0.6.1"]
     [compojure "1.5.2"]
@@ -22,9 +24,9 @@
     [org.clojure/core.async "0.3.442"]
     [http-kit "2.2.0"]
     [org.clojure/tools.logging "0.3.1"]
+    [org.clojure/tools.namespace "0.2.11"]
     ]
   :source-paths ["src/clj", "src/cljc"]
-  :ring {:handler ccboard.server.handlers/main-handler :auto-reload? true}
   :target-path "target/%s"
   :main ccboard.core
   :profiles {:uberjar {:aot :all}}

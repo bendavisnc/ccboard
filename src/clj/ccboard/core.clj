@@ -2,37 +2,52 @@
   (require
     [ccboard.server.handlers :as ccboard-handlers]
     [clojure.tools.logging :as logging]
+    [clojure.tools.namespace.repl :as repl-tools]
+    [ring.middleware.reload :refer [wrap-reload]]
     [org.httpkit.server :as httpkit])
   (:gen-class))
 
+(logging/info "Starting ccboard.core")
 
-(def running-server (atom nil))
+(defonce running-server (atom nil))
+
+(declare stop-server!)
 
 (defn start-server! []
-  (reset! running-server
-    (httpkit/run-server
-      ccboard-handlers/main-handler
-      {:port 3000}
-      )))
-
-(add-watch running-server :every-start
-  (fn [k r old-stop-server-fn new-stop-server-fn]
-    (do
-      (when (fn? old-stop-server-fn)
-        (do
-          (old-stop-server-fn)
-          (logging/info "killed old server.")))
-      (cond
-        (fn? new-stop-server-fn)
-          (logging/info "httpkit server started.")
-        :else
-          (throw (new Exception "Server creation failed."))))))
+  (do
+    (println "@ start-server!")
+    (reset! running-server
+      (httpkit/run-server
+        (wrap-reload ccboard-handlers/main-handler)
+        {:port 3000}))))
 
 (defn stop-server! []
-  (@running-server))
+  (do
+    (println "@ stop-server!")
+    (logging/info "Killing server.")
+    (@running-server)))
+    
+(defn restart-server! []
+  (do
+    (println "@ restart-server!")
+    (when-let [existing-server-to-kill @running-server]
+      (stop-server!))
+    (start-server!)))
+;  (do
+;   (logging/info "Restarting")
+;    (repl-tools/refresh :after 'start-server!)))
+
+(defn auto-start! []
+  (do
+    (println "@ auto-start!")
+    (repl-tools/refresh :after 'ccboard.core/restart-server!)))
 
 (defn -main
   "Start the httpkit server."
   [& args]
   (time
     (start-server!)))
+
+
+
+

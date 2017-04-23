@@ -126,39 +126,39 @@
               (+ (* (coord/y once-rotated) 1000) (* (coord/x once-rotated) 100))))
           (map-indexed vector (generate-coords coord-0)))))))
 
-(def all-player-pieces
-  (apply merge 
-    (map
-      (fn [rotation-amt]
-        (get-player-pieces* rotation-amt piece-constants/pieces-per-player))
-      (range 0 360))))
+;(def all-player-pieces
+;  (apply merge
+;    (map
+;      (fn [rotation-amt]
+;        (get-player-pieces* rotation-amt piece-constants/pieces-per-player))
+;      (range 0 360))))
 
-; (defn get-player-pieces* [rotation-angle]
-  ; (get-player-pieces** rotation-angle piece-constants/pieces-per-player))
+ (defn get-player-pieces** [rotation-angle]
+   (get-player-pieces* rotation-angle piece-constants/pieces-per-player))
 
-; (def player-one-pieces
-;   (get-player-pieces* 0))
+ (def player-one-pieces
+   (get-player-pieces** 0))
+;
+ (def player-two-pieces
+   (get-player-pieces** 60))
+;
+ (def player-three-pieces
+   (get-player-pieces** 120))
+;
+ (def player-four-pieces
+   (get-player-pieces** 180))
+;
+ (def player-five-pieces
+   (get-player-pieces** 240))
+;
+ (def player-six-pieces
+   (get-player-pieces** 300))
 
-; (def player-two-pieces
-;   (get-player-pieces* 60))
-
-; (def player-three-pieces
-;   (get-player-pieces* 120))
-
-; (def player-four-pieces
-;   (get-player-pieces* 180))
-
-; (def player-five-pieces
-;   (get-player-pieces* 240))
-
-; (def player-six-pieces
-;   (get-player-pieces* 300))
-
-; (def all-player-pieces
-;   (merge
-;     player-one-pieces
-;     player-two-pieces
-;     player-three-pieces
-;     player-four-pieces
-;     player-five-pieces
-;     player-six-pieces))
+ (def all-player-pieces
+   (merge
+     player-one-pieces
+     player-two-pieces
+     player-three-pieces
+     player-four-pieces
+     player-five-pieces
+     player-six-pieces))

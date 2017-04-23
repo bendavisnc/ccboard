@@ -23,7 +23,7 @@
         ;"border" "1px solid gray"
       }
       [
-        ".piece"
+        ".player-piece"
         {
           "cursor" "move"
         }

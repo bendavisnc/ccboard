@@ -1,12 +1,20 @@
 
 web server work
-  add websockethandler
-  add piece data generation
+
+  add websockethandler ✓
+
+  add piece data generation ✓
 
 
 front end work
 
-  add websocket connection code
+  add websocket connection code ✓
 
   gui work
     - added buttons
+
+  add board functionality
+
+  mobile work
+
+  add autoplacement
