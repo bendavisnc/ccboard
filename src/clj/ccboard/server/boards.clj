@@ -10,11 +10,14 @@
 ;;
 ;; The in-memory warehousing of all existing boards.
 
-(def the-standard-board
-  (board/create :board-0
+(defn create-standard-board [board-k]
+  (board/create board-k
     :player-pieces piece-generation/all-player-pieces
     :static-pieces piece-generation/all-static-pieces
     ))
+
+(def the-standard-board
+  (create-standard-board :board-0))
 
 (def loaded-boards
   (atom
@@ -58,6 +61,14 @@
       (when (not (= listener-key (move-event/comitter new-move-event))) ; Don't resend to the original sender
         (when-let [send-fn (get-in @all-board-listeners [listener-key (move-event/board new-move-event)])]
           (send-fn new-move-event))))))
+
+(defn add-new-board! [board-k]
+  (do
+    (swap!
+      loaded-boards
+      conj [board-k (create-standard-board board-k)])
+    (get-all-board-keys)))
+
 
 
 ;;

@@ -7,21 +7,29 @@
     [ring.middleware.content-type :as content-type]
     [ccboard.server.html.main-page :as main-page]
     [ccboard.server.boards :as boards]
-    [ccboard.server.websockets.handler :as websockets-handler]
-    )
-  )
+    [ccboard.server.websockets.handler :as websockets-handler]))
+    
+  
 
 
 (defroutes main-handler
   (GET "/" [] (main-page/render))
   (GET "/ws" []  websockets-handler/ws-handler)
   (GET "/get-all-board-ids" request {
-      :status 200
-      :headers {"Content-Type" "application/edn"}
-      :body
-        (pr-str
-          (boards/get-all-board-keys))
-    })
+                                     :status 200
+                                     :headers {"Content-Type" "application/edn"}
+                                     :body
+                                     (pr-str
+                                       (boards/get-all-board-keys))})
+
+  (GET "/new-board-request" request {
+                                     :status 200
+                                     :headers {"Content-Type" "application/edn"}
+                                     :body
+                                       (pr-str
+                                         (boards/add-new-board! (keyword (:query-string request))))})
+                                     
+
   (route/resources "/")
   (route/not-found "<h1>Page not found</h1>"))
 
