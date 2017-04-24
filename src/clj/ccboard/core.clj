@@ -14,22 +14,19 @@
 (declare stop-server!)
 
 (defn start-server! []
-  (do
-    (println "@ start-server!")
-    (reset! running-server
-      (httpkit/run-server
-        (wrap-reload ccboard-handlers/main-handler)
-        {:port 3000}))))
+  (reset! running-server
+    (httpkit/run-server
+      (wrap-reload ccboard-handlers/main-handler)
+      {:port 3000})))
 
 (defn stop-server! []
   (do
-    (println "@ stop-server!")
     (logging/info "Killing server.")
     (@running-server)))
     
 (defn restart-server! []
   (do
-    (println "@ restart-server!")
+    (logging/info "Restarting server.")
     (when-let [existing-server-to-kill @running-server]
       (stop-server!))
     (start-server!)))
@@ -39,7 +36,7 @@
 
 (defn auto-start! []
   (do
-    (println "@ auto-start!")
+    (logging/info "Autostarting server.")
     (repl-tools/refresh :after 'ccboard.core/restart-server!)))
 
 (defn -main

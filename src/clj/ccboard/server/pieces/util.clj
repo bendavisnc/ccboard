@@ -1,7 +1,7 @@
 (ns ccboard.server.pieces.util
   (:require [ccboard.shared.model.coord :as coord]
             [ccboard.shared.constants :as constants]
-            [ccboard.server.util.math :as math-util]))
+            [ccboard.shared.util.math :as math-util]))
 
 (defn get-rel-coord [coord-0, right-amt, up-amt]
   (coord/create

@@ -21,6 +21,7 @@
 
 (def piece-css
   (concat
+    [[".static-piece.highlighted", {"fill" "#cbcbcb"}]]
     [[".static-piece", {"fill" constants/noplayer-color}]]
     player-one-css
     player-two-css

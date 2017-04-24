@@ -13,10 +13,12 @@ front end work
   gui work
     - added buttons
 
-  add board functionality ✓
-
   mobile work
 
-  add autoplacement
+  add autoplacement ✓
 
   add rotation
+
+add board functionality ✓
+
+add move back forth

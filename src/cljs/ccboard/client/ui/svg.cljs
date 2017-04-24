@@ -40,7 +40,8 @@
     (d3/attr "cx" get-x)
     (d3/attr "cy" get-y)
     (d3/attr "id" get-id)
-    (d3/attr "r" (* constants/piece-radius constants/board-width))
+    ;(d3/attr "r" (* constants/piece-radius constants/board-width))
+    (d3/attr "r" constants/piece-radius)
     ))
 
 (defn init-static-pieces! [piece-data]
@@ -58,7 +59,7 @@
     (d3/attr "cx" get-x)
     (d3/attr "cy" get-y)
     (d3/attr "id" get-id)
-    (d3/attr "r" (* constants/piece-radius constants/board-width))
+    (d3/attr "r" constants/piece-radius)
     ))
 
 ;todo cleanup
@@ -76,6 +77,7 @@
           (->
             selection-a
             (d3/transition)
+            ;(d3/ease (aget js/d3 "easeCubic"))
             (d3/duration transition-time))
           ;else
           selection-a)
@@ -93,3 +95,12 @@
       (d3/attr "cx" get-x)
       (d3/attr "cy" get-y))))
 
+
+(defn highlight-piece! [p]
+  (do
+    (->
+      (d3/select* ".static-piece")
+      (.classed "highlighted" false))
+    (->
+      p
+      (.classed "highlighted" true))))

@@ -22,5 +22,7 @@
 ;; dimensions
 ;(def board-width "800px")
 ;(def board-height "600px")
-(def board-width (str shared-constants/board-width "px"))
-(def board-height (str shared-constants/board-height "px"))
+;(def board-width (str shared-constants/board-width "px"))
+;(def board-height (str shared-constants/board-height "px"))
+(def board-width "100vh")
+(def board-height board-width)

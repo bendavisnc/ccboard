@@ -1,4 +1,4 @@
-(ns ccboard.server.util.math)
+(ns ccboard.shared.util.math)
 
 
 (defn to-precision [n, amt]
@@ -16,32 +16,32 @@
 (def apply-rotation
   (fn [coord, degrees]
     (let [
-        theta (to-radians degrees)
-        [x, y] coord
-      ]
+          theta (to-radians degrees)
+          [x, y] coord
+          ]
       [
-        (+
-          (* x (Math/cos theta))
-          (* y (Math/sin theta))),
-        (+
-          (* x (Math/sin theta) -1)
-          (* y (Math/cos theta)))])))
+       (+
+         (* x (Math/cos theta))
+         (* y (Math/sin theta))),
+       (+
+         (* x (Math/sin theta) -1)
+         (* y (Math/cos theta)))])))
 
 (def apply-translation
   (fn [coord, dx, dy]
     (let [
-        [x, y] coord
-      ]
+          [x, y] coord
+          ]
       [
-        (+ x dx)
-        (+ y dy)])))
+       (+ x dx)
+       (+ y dy)])))
 
 
 (def perform-rotation
   (fn [coord, degrees, pivot-coord]
     (let [
-        [dx, dy] pivot-coord
-      ]
+          [dx, dy] pivot-coord
+          ]
       (
         (comp
           #(apply-translation % dx dy)
@@ -52,9 +52,9 @@
 (def distance
   (fn [coord-a, coord-b]
     (let [
-        [ax, ay] coord-a
-        [bx, by] coord-b
-      ]
+          [ax, ay] coord-a
+          [bx, by] coord-b
+          ]
       (Math/pow
         (+
           (Math/pow
@@ -68,4 +68,3 @@
               ay)
             2))
         0.5))))
-

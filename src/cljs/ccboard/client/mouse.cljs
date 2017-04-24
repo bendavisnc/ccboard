@@ -4,7 +4,9 @@
     [ccboard.client.ui.svg :as ccboard-svg]
     [ccboard.client.d3-helpers :as d3-helpers]
     [ccboard.shared.model.coord :as coord]
-    [d3.core :as d3])
+    [ccboard.client.util.pieces :as pieces-util]
+    [d3.core :as d3]
+    [ccboard.shared.model.board :as board])
 )
 
 
@@ -13,12 +15,16 @@
   (this-as this*
     (let [
         piece-k (keyword (aget this* "id"))
-        [mouse-x, mouse-y] (d3-helpers/mouse-data ccboard-svg/svg-d3)
-        event-data (coord/create :x mouse-x :y mouse-y)
+        drag-coord (coord/from-vec (d3-helpers/mouse-data ccboard-svg/svg-d3))
+        landing-piece
+          (pieces-util/coord->static-piece
+            (pieces-util/closest-available-coord
+              (pieces-util/piece-k->coord piece-k)))
       ]
       (do
-        (ccboard-svg/update-piece! piece-k event-data)
-        (async-movement/put-new-coord! event-data)))))
+        (ccboard-svg/update-piece! piece-k drag-coord) ; update the dragged piece's position
+        (ccboard-svg/highlight-piece! landing-piece) ; highlight the closest piece to it
+        (async-movement/put-new-coord! drag-coord)))))
 
 (defn on-drag-start! [_]
   (this-as this*
@@ -31,8 +37,14 @@
   (this-as this*
     (let [
         piece-k (keyword (aget this* "id"))
+        landing-coord
+          (pieces-util/closest-available-coord
+            (pieces-util/piece-k->coord piece-k))
       ]
-      (async-movement/put-stop! piece-k))))
+      (do
+        (ccboard-svg/update-piece! piece-k landing-coord :transition-time 500)
+        (async-movement/put-new-coord! landing-coord)
+        (async-movement/put-stop! piece-k)))))
 
 
 (defn enable-mouse-drag! []

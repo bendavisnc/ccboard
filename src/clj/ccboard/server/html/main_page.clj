@@ -3,12 +3,16 @@
     [ccboard.server.html.basic-template :as basic-template]
     [ccboard.server.html.boards-panel :as boards-panel]
     [ccboard.server.html.buttons :as buttons]
-    [ccboard.server.css.style.constants :as style-constants]
-    ))
+    [ccboard.server.css.style.constants :as style-constants]))
+    
 
 
 (defn svg-element [& content]
-  [:svg {:width style-constants/board-width, :height style-constants/board-height}
+  [:svg 
+    {
+     :width style-constants/board-width, 
+     :height style-constants/board-height
+     :viewbox "0 0 1 1"}
     content])
 
 

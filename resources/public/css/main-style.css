@@ -10,6 +10,10 @@ svg .player-piece {
   cursor: move;
 }
 
+.static-piece.highlighted {
+  fill: #cbcbcb;
+}
+
 .static-piece {
   fill: #999;
 }

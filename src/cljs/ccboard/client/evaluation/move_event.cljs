@@ -4,6 +4,11 @@
             [ccboard.shared.model.move-event :as move-event]
             ))
 
+(def inbetween-transition-time 15)
+;(def inbetween-transition-time 20)
+
+(def move-end-transition-time 500)
+
 (defn eval-move-event! [e & {:keys [and-then skip-animation?]}]
   "Takes a move event model object and makes a ghost like piece drag happen."
   (letfn [
@@ -22,7 +27,8 @@
               (move-event/piece e)
               (first moves-to-make)
               :and-then (fn [] (update-fn (rest moves-to-make)))
-              :transition-time 10 ;todo make smarter
+              ;:transition-time 10 ;todo make smarter
+              :transition-time (if (= (first moves-to-make) (last moves-to-make)) move-end-transition-time inbetween-transition-time)
               )))
     ]
     (update-fn (move-event/movement-data e))))

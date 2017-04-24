@@ -56,7 +56,8 @@
     (ccboard-svg/clear-pieces!)
     (ccboard-svg/init-static-pieces! (board/static-pieces new-board))
     (ccboard-svg/init-player-pieces! (board/player-pieces new-board))
-    (move-event-evaluation/eval-move-events! (board/move-events new-board) :skip-animation? false)
+    ;(move-event-evaluation/eval-move-events! (board/move-events new-board) :skip-animation? false)
+    (move-event-evaluation/eval-move-events! (board/move-events new-board) :skip-animation? true)
     (ccboard-mouse/enable-mouse-drag!)))
 
 (defmethod ^:private websocket-server-reactions :new-session-data-received [[conn, new-data]]
