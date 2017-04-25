@@ -20,14 +20,14 @@
 (def ^{:doc "The coord that the following layout math is based on."}
   coord-0 (pieces-util/get-rel-coord pieces-center-coord -6 -4))
 
-(defn projected-coords [cs]
-  "Projects coords from a 0 1 unit space to a 0 board dimension unit space."
-  (map
-    (fn [c]
-      (coord/create
-        :x (* (coord/x c) constants/board-width)
-        :y (* (coord/y c) constants/board-height)))
-    cs))
+;(defn projected-coords [cs]
+;  "Projects coords from a 0 1 unit space to a 0 board dimension unit space."
+;  (map
+;    (fn [c]
+;      (coord/create
+;        :x (* (coord/x c) constants/board-width)
+;        :y (* (coord/y c) constants/board-height)))
+;    cs))
 
 (defn row-of-piece-coords [how-many, coord-0]
   "Generates a row of coords based on a starting coord."

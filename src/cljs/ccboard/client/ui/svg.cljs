@@ -12,6 +12,8 @@
 (def svg-d3
   (d3/select "svg"))
 
+(def pieces-container (d3/select "#pieces-container"))
+
 (defn to-creation-data [piece-data]
   (reduce-kv
     (fn [acc k v]
@@ -21,13 +23,20 @@
 
 (defn clear-pieces! []
   (->
-    svg-d3
+    pieces-container
     (d3/select* ".piece")
     (d3/remove)))
 
+(defn clear-transitions! []
+  (->
+    pieces-container
+    (d3/select* ".piece")
+    (.interrupt)))
+    ;(d3/transition)))
+
 (defn init-player-pieces! [piece-data]
   (->
-    svg-d3
+    pieces-container
     (d3/select* ".player-piece")
     (d3/data
       (->
@@ -46,7 +55,7 @@
 
 (defn init-static-pieces! [piece-data]
   (->
-    svg-d3
+    pieces-container
     (d3/select* ".static-piece")
     (d3/data
       (->

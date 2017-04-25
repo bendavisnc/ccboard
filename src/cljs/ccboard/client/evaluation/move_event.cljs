@@ -28,17 +28,23 @@
               (first moves-to-make)
               :and-then (fn [] (update-fn (rest moves-to-make)))
               ;:transition-time 10 ;todo make smarter
-              :transition-time (if (= (first moves-to-make) (last moves-to-make)) move-end-transition-time inbetween-transition-time)
+              ;:transition-time (if (= (first moves-to-make) (last moves-to-make)) move-end-transition-time inbetween-transition-time)
+              :transition-time
+                (if
+                  (= (first moves-to-make) (last moves-to-make))
+                    move-end-transition-time
+                    (move-event/transition-inbetween-time e))
               )))
     ]
     (update-fn (move-event/movement-data e))))
 
 
 (defn eval-move-events! [es & {:keys [skip-animation?]}]
-  (eval-move-event! (first es)
-    :skip-animation? skip-animation?
-    :and-then
-      (fn []
-        (when
-          (not (empty? (rest es)))
-            (eval-move-events! (rest es) :skip-animation? skip-animation?)))))
+  (when (not (empty? es))
+    (eval-move-event! (first es)
+      :skip-animation? skip-animation?
+      :and-then
+        (fn []
+          (when
+            (not (empty? (rest es)))
+              (eval-move-events! (rest es) :skip-animation? skip-animation?))))))

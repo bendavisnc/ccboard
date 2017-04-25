@@ -20,6 +20,8 @@
       "svg"
       {
         ;"background-color" "aqua"
+        ;"border" "1px solid aqua"
+        ;"transform" "rotate(45deg)"
         ;"border" "1px solid gray"
       }
       [

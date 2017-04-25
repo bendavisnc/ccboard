@@ -7,19 +7,20 @@
     
 
 
-(defn svg-element [& content]
+(def svg-element
   [:svg 
     {
      :width style-constants/board-width, 
      :height style-constants/board-height
      :viewbox "0 0 1 1"}
-    content])
+    [:g
+     {:id "pieces-container"}]])
 
 
 (defn render []
   (basic-template/render
-    (svg-element)
-    buttons/move-buttons-set
+    svg-element
+    ;buttons/move-buttons-set
     buttons/bottom-buttons-set
     boards-panel/element))
 

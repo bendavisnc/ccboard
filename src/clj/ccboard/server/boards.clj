@@ -19,12 +19,15 @@
 (def the-standard-board
   (create-standard-board :board-0))
 
-(def loaded-boards
-  (atom
+(def loaded-boards (atom nil))
+
+(defn reset-boards! []
+  (reset! loaded-boards
     {
      (board/board-id the-standard-board)
        the-standard-board
     }))
+(reset-boards!)
 
 (defn get-board [board-k]
   (or

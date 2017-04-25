@@ -4,11 +4,14 @@
    [ccboard.client.playground]
    [ccboard.client.boards :as boards]
    [ccboard.client.async.movement.local]
+   [ccboard.client.rotation-filter :as rotation-filter]
    )
 )
 
 (defn on-app-start! []
-  (boards/load-boards-from-server! :and-then boards/select-first-board!))
+  (do
+    (rotation-filter/enable!)
+    (boards/load-boards-from-server! :and-then boards/select-first-board!)))
 
 ;;
 ;; onload

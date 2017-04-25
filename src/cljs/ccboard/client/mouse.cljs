@@ -6,6 +6,7 @@
     [ccboard.shared.model.coord :as coord]
     [ccboard.client.util.pieces :as pieces-util]
     [d3.core :as d3]
+    [ccboard.client.rotation-filter :as rotation-filter]
     [ccboard.shared.model.board :as board])
 )
 
@@ -15,7 +16,9 @@
   (this-as this*
     (let [
         piece-k (keyword (aget this* "id"))
-        drag-coord (coord/from-vec (d3-helpers/mouse-data ccboard-svg/svg-d3))
+        drag-coord
+          (rotation-filter/r-apply
+            (coord/from-vec (d3-helpers/mouse-data ccboard-svg/svg-d3)))
         landing-piece
           (pieces-util/coord->static-piece
             (pieces-util/closest-available-coord

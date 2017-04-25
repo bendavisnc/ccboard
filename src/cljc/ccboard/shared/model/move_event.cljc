@@ -55,3 +55,11 @@
   (str
     (assoc e
       :movement-data (str "<count: " (count (movement-data e)) ">"))))
+
+
+(defn transition-inbetween-time [e]
+  (/
+    (-
+      (end-time e)
+      (start-time e))
+    (count (movement-data e))))

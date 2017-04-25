@@ -10,15 +10,15 @@ front end work
 
   add websocket connection code ✓
 
-  gui work
-    - added buttons
-
   mobile work
 
   add autoplacement ✓
 
-  add rotation
+  add rotation ✓
+
 
 add board functionality ✓
 
 add move back forth
+
+weed out original d3 wrapper
