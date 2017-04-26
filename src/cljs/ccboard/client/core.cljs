@@ -1,7 +1,6 @@
 (ns ccboard.client.core
  (:require
    [jayq.core :as jayq]
-   [ccboard.client.playground]
    [ccboard.client.boards :as boards]
    [ccboard.client.async.movement.local]
    [ccboard.client.rotation-filter :as rotation-filter]

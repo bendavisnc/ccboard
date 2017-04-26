@@ -19,7 +19,7 @@
 
 (defn render []
   (basic-template/render
-    svg-element
+    [:div {:id "svg-container"} svg-element]
     ;buttons/move-buttons-set
     buttons/bottom-buttons-set
     boards-panel/element))

@@ -3,7 +3,8 @@
     [ccboard.client.ajax.boards :as boards-ajax]
     [ccboard.client.ui.boards-panel :as boards-panel]
     [ccboard.client.websocket-board-session :as websocket-board-session]
-    [d3.core :as d3]))
+    [diithree.core :as d3]
+    ))
 
 ;;
 ;;
@@ -32,7 +33,7 @@
 (defn ^:private toggle-board-selected! [board-key]
   (do
     (->
-      (d3/select* ".board-li")
+      (d3/select-all ".board-li")
       (d3/attr "class" "board-li"))
     (->
       (d3/select (str "#" (name board-key)))

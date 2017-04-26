@@ -8,8 +8,9 @@
 ;; Technical
 
 ;(def site-address "http://192.168.1.128:3000")
-(def site-address "192.168.1.128:3000")
+;(def site-address "192.168.1.128:3000")
 ;(def site-address "localhost:3000")
+(def site-address "98.26.29.137:3000")
 
 
 

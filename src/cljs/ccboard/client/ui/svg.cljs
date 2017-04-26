@@ -1,8 +1,8 @@
 (ns ccboard.client.ui.svg
   (:require
-    [d3.core :as d3]
     [ccboard.client.d3-helpers :refer [get-x, get-y, get-id]]
     [ccboard.shared.constants :as constants]
+    [diithree.core :as d3]
     ))
 
 ;;
@@ -24,26 +24,25 @@
 (defn clear-pieces! []
   (->
     pieces-container
-    (d3/select* ".piece")
+    (d3/select-all ".piece")
     (d3/remove)))
 
 (defn clear-transitions! []
   (->
     pieces-container
-    (d3/select* ".piece")
-    (.interrupt)))
-    ;(d3/transition)))
+    (d3/select-all ".piece")
+    (d3/interrupt)))
 
 (defn init-player-pieces! [piece-data]
   (->
     pieces-container
-    (d3/select* ".player-piece")
+    (d3/select-all ".player-piece")
     (d3/data
       (->
         piece-data
         (to-creation-data)
         (clj->js)))
-    (d3/entered)
+    (d3/enter)
     (d3/append "circle")
     (d3/attr "class" "piece player-piece")
     (d3/attr "cx" get-x)
@@ -56,13 +55,13 @@
 (defn init-static-pieces! [piece-data]
   (->
     pieces-container
-    (d3/select* ".static-piece")
+    (d3/select-all ".static-piece")
     (d3/data
       (->
         piece-data
         (to-creation-data)
         (clj->js)))
-    (d3/entered)
+    (d3/enter)
     (d3/append "circle")
     (d3/attr "class" "piece static-piece")
     (d3/attr "cx" get-x)
@@ -108,8 +107,8 @@
 (defn highlight-piece! [p]
   (do
     (->
-      (d3/select* ".static-piece")
-      (.classed "highlighted" false))
+      (d3/select-all ".static-piece")
+      (d3/classed "highlighted" false))
     (->
       p
-      (.classed "highlighted" true))))
+      (d3/classed "highlighted" true))))

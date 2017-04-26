@@ -4,21 +4,20 @@
 
 ; based off of https://github.com/ibdknox/jayq/blob/master/src/jayq/core.cljs
 
-;(def ddd
-;  (fn [sel]
-;    (cond
-;      (string? sel)
-;      (.selectAll js/d3 sel)
-;      (array? sel)
-;      (.selectAll js/d3 sel)
-;      :else
-;        (.select js/d3 sel))))
+(defn select
+  ([this s]
+   (.select this s))
+  ([s]
+   (select js/d3 s)))
 
-(defn select [s]
-  (.select js/d3 s))
+(defn select-all
+  ([this s]
+   (.selectAll this s))
+  ([s]
+   (select-all js/d3 s)))
 
-(defn select-all [s]
-  (.selectAll js/d3 s))
+(defn enter [this]
+  (.enter this))
 
 (def d3type (.-selection js/d3))
 
@@ -73,10 +72,47 @@
      (.classed this c d))))
 
 
-(def datum
-  (fn
-    ([this]
-     (.datum this))
-    ([this, d]
-     (.datum this d))))
+(defn datum
+  ([this]
+    (.datum this))
+  ([this, d]
+    (.datum this d)))
 
+(defn data
+  ([this]
+    (.data this))
+    ([this, d]
+  (.data this d)))
+
+(defn append [this s]
+  (.append this s))
+
+(defn attr
+  ([this, s]
+   (.attr this s))
+  ([this, s v]
+   (.attr this s v)))
+
+(defn text [selection text]
+  (.text selection text))
+
+(defn on [this s f]
+  (.on this s f))
+
+(defn remove [this]
+  (.remove this))
+
+(defn interrupt [this]
+  (.interrupt this))
+
+(defn transition [this]
+  (.transition this))
+
+(defn ease [this v]
+  (.ease this v))
+
+(defn duration [this t]
+  (.duration this t))
+
+(defn delay [this t]
+  (.delay this t))

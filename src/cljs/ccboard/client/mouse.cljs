@@ -5,9 +5,9 @@
     [ccboard.client.d3-helpers :as d3-helpers]
     [ccboard.shared.model.coord :as coord]
     [ccboard.client.util.pieces :as pieces-util]
-    [d3.core :as d3]
+    [diithree.core :as d3]
     [ccboard.client.rotation-filter :as rotation-filter]
-    [ccboard.shared.model.board :as board])
+    )
 )
 
 
@@ -52,7 +52,7 @@
 
 (defn enable-mouse-drag! []
   (.call
-    (d3/select* ".player-piece")
+    (d3/select-all ".player-piece")
     (->
       (.drag js/d3)
       (.on "start" on-drag-start!)

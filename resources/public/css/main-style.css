@@ -10,6 +10,11 @@ svg .player-piece {
   cursor: move;
 }
 
+#svg-container {
+  width: 100vh;
+  height: 100vh;
+}
+
 .static-piece.highlighted {
   fill: #cbcbcb;
 }
@@ -262,11 +267,11 @@ svg .player-piece {
   width: 400px;
   height: 90vh;
   border-left: 4px solid #999999;
-  position: absolute;
   right: 40px;
   top: 40px;
   margin-left: auto;
   margin-right: auto;
+  float: left;
 }
 
 #boards-panel #new-board-button {
@@ -307,19 +312,19 @@ svg .player-piece {
 }
 
 .ccboard-button img {
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  height: 100%;
 }
 
 div.ccboard-button {
   float: left;
   margin-right: 20px;
-  width: 100px;
-  height: 100px;
+  width: 10vh;
+  height: 10vh;
 }
 
 div.buttons-set {
-  width: 680px;
+
 }
 
 #move-buttons {
@@ -330,6 +335,6 @@ div.buttons-set {
 
 #bottom-buttons {
   position: absolute;
-  left: 40px;
-  bottom: 40px;
+  left: 2vh;
+  bottom: 2vh;
 }

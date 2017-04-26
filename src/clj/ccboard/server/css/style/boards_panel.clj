@@ -8,11 +8,13 @@
         "height" "90vh"
         ;"border" "1px solid green"
         "border-left" "4px solid #999999"
-        "position" "absolute"
+        ;"position" "absolute"
         "right" "40px"
         "top" "40px"
         "margin-left" "auto"
         "margin-right" "auto"
+        ;"background-color" "green"
+        "float" "left"
       }
       [
         "#new-board-button" {

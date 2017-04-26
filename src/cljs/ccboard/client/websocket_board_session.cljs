@@ -5,7 +5,6 @@
             [ccboard.client.async.movement.from-server :as async-movement]
             [ccboard.client.mouse :as ccboard-mouse]
             [ccboard.client.evaluation.move-event :as move-event-evaluation]
-            [d3.core :as d3]
             [ccboard.shared.constants :as shared-constants]))
 
 
@@ -55,12 +54,10 @@
     (reset! current-client-id new-client-id)
     (ccboard-svg/clear-transitions!)
     (ccboard-svg/clear-pieces!)
-    ;(ccboard-svg/init-static-pieces! (rotation-filter/apply-all-pieces (board/static-pieces new-board)))
-    ;(ccboard-svg/init-player-pieces! (rotation-filter/apply-all-pieces (board/player-pieces new-board)))
     (ccboard-svg/init-static-pieces! (board/static-pieces new-board))
     (ccboard-svg/init-player-pieces! (board/player-pieces new-board))
-    (move-event-evaluation/eval-move-events! (board/move-events new-board) :skip-animation? false)
-    ;(move-event-evaluation/eval-move-events! (board/move-events new-board) :skip-animation? true)
+    ;(move-event-evaluation/eval-move-events! (board/move-events new-board) :skip-animation? false :pace move-event-evaluation/fast-transition-time)
+    (move-event-evaluation/eval-move-events! (board/move-events new-board) :skip-animation? false :pace move-event-evaluation/super-fast-transition-time)
     (ccboard-mouse/enable-mouse-drag!)))
 
 (defmethod ^:private websocket-server-reactions :new-session-data-received [[conn, new-data]]
@@ -98,7 +95,7 @@
 (def ^:private connection-atom (atom nil))
 
 (add-watch connection-atom :every-new-connection
-  (fn [k r old-conn new-conn]
+  (fn [_ _ old-conn new-conn]
     (do
       (when old-conn (.close old-conn))
       (add-all-ws-event-listeners new-conn))))

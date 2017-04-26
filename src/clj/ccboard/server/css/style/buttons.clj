@@ -4,8 +4,8 @@
     [
       ".ccboard-button img"
       {
-        :width "100px"
-        :height "100px"
+        :width "100%"
+        :height "100%"
       }
     ],
     [
@@ -13,14 +13,14 @@
       {
         "float" "left"
         "margin-right" "20px"
-        :width "100px"
-        :height "100px"
+        :width "10vh"
+        :height "10vh"
       }
     ],
     [
       "div.buttons-set"
       {
-        :width "680px"
+        ;:width "680px"
       }
     ],
     [
@@ -35,8 +35,8 @@
       "#bottom-buttons"
       {
         "position" "absolute"
-        "left" "40px"
-        "bottom" "40px"
+        "left" "2vh"
+        "bottom" "2vh"
       }
     ],
   ])
