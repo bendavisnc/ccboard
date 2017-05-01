@@ -1,8 +1,8 @@
 (ns ccboard.server.html.basic-template
   (:require
     [hiccup.page :refer [html5]]
-    [ccboard.shared.constants :as constants])
-  )
+    [ccboard.shared.constants :as constants]))
+  
 
 ;;
 ;;
@@ -27,14 +27,14 @@
         {
           :rel "stylesheet"
           :type "text/css"
-          :href "css/main-style.css"
-        }
-      ]
-    ]
+          :href "css/main-style.css"}]]
+        
+      
+    
     [:body
       (container dynamic-content)
-      [:script {:src "js/cljsout/main.js"}]
-    ]))
+      [:script {:src "js/cljsout/main.js"}]]))
+    
 
 
 

@@ -74,15 +74,15 @@
 
 (defn datum
   ([this]
-    (.datum this))
+   (.datum this))
   ([this, d]
-    (.datum this d)))
+   (.datum this d)))
 
 (defn data
   ([this]
-    (.data this))
-    ([this, d]
-  (.data this d)))
+   (.data this))
+  ([this, d]
+   (.data this d)))
 
 (defn append [this s]
   (.append this s))

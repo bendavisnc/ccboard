@@ -37,8 +37,8 @@
     :comitter comitter
     :movement-data movement-data
     :start-time start-time
-    :end-time end-time
-  })
+    :end-time end-time})
+  
 
 (defn move-event? [e] ; todo - revisit
   (boolean
@@ -48,8 +48,8 @@
       (:comitter e)
       (:movement-data e)
       (:start-time e)
-      (:end-time e)
-      )))
+      (:end-time e))))
+      
 
 (defn as-str [e]
   (str

@@ -30,20 +30,29 @@
     (when-let [existing-server-to-kill @running-server]
       (stop-server!))
     (start-server!)))
-;  (do
-;   (logging/info "Restarting")
-;    (repl-tools/refresh :after 'start-server!)))
 
 (defn auto-start! []
   (do
     (logging/info "Autostarting server.")
     (repl-tools/refresh :after 'ccboard.core/restart-server!)))
 
-(defn -main
-  "Start the httpkit server."
-  [& args]
+;(defn -main
+;  "Start the httpkit server."
+;  [args]
+;  [& {:keys [site-address]}]
+  ;(let [dynamic-site-address args]
+  ;  (do
+  ;    (println dynamic-site-address))))
+  ;     (time
+  ;       (start-server!)))))
+
+
+
+
+(defn -main [& args]
+ "Start the httpkit server."
   (time
-    (start-server!)))
+        (start-server!)))
 
 
 

@@ -27,11 +27,11 @@
 (defn ^:private ws-event-resolver [[_, e]]
   (cond
     (= (aget e "type") "open")
-      :new-board-session
+    :new-board-session
     (:new-client-id e)
-      :new-session-data-received
+    :new-session-data-received
     (move-event/move-event? e)
-      :new-from-server-move-event
+    :new-from-server-move-event
     :else
       (do
         (.dir js/console e)
@@ -66,8 +66,8 @@
 
 (defmethod ^:private websocket-server-reactions :new-from-server-move-event [[conn, new-move-event]]
   (println "received new event from server! " (move-event/as-str new-move-event))
-  (async-movement/put-new-from-server-move-event! new-move-event)
-  )
+  (async-movement/put-new-from-server-move-event! new-move-event))
+  
 
 ; todo - cleanup
 (defn ^:private add-ws-open-event-listener [conn]
@@ -79,18 +79,18 @@
   (.addEventListener conn "message"
     (fn [e]
       (let [
-          parsed-data
+            parsed-data
             (->
               (aget e "data")
-              cljs.reader/read-string)
-        ]
+              cljs.reader/read-string)]
+        
         (websocket-server-reactions [conn, parsed-data])))))
 
 (defn ^:private add-all-ws-event-listeners [conn]
   (do
     (add-ws-open-event-listener conn)
-    (add-ws-receive-event-listener conn)
-    ))
+    (add-ws-receive-event-listener conn)))
+    
 
 (def ^:private connection-atom (atom nil))
 

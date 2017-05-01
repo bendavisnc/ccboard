@@ -30,9 +30,9 @@
         (this-as this*
           (when 
             (= 13 (-> js/d3 (aget "event") (aget "keyCode")))
-              (do
-                (on-input-submit! (aget this* "value"))
-                (aset this* "value" ""))))))))
+            (do
+              (on-input-submit! (aget this* "value"))
+              (aset this* "value" ""))))))))
     
 
 (defn init! [board-keys & {:keys [on-board-item-click! on-input-submit!]}]

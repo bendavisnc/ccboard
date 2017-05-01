@@ -2,8 +2,8 @@
   (:require
     [ccboard.client.d3-helpers :refer [get-x, get-y, get-id]]
     [ccboard.shared.constants :as constants]
-    [diithree.core :as d3]
-    ))
+    [diithree.core :as d3]))
+    
 
 ;;
 ;;
@@ -49,8 +49,8 @@
     (d3/attr "cy" get-y)
     (d3/attr "id" get-id)
     ;(d3/attr "r" (* constants/piece-radius constants/board-width))
-    (d3/attr "r" constants/piece-radius)
-    ))
+    (d3/attr "r" constants/piece-radius)))
+    
 
 (defn init-static-pieces! [piece-data]
   (->
@@ -67,19 +67,19 @@
     (d3/attr "cx" get-x)
     (d3/attr "cy" get-y)
     (d3/attr "id" get-id)
-    (d3/attr "r" constants/piece-radius)
-    ))
+    (d3/attr "r" constants/piece-radius)))
+    
 
 ;todo cleanup
 (defn update-piece! [piece-k, new-position & {:keys [transition-time, and-then]}]
   "Tasked with ultimately calling d3's attr method once on a piece piece-k and a new position."
   (let [
-      selection-a
+        selection-a
         (->
           (str "#" (name piece-k))
           (d3/select)
           (d3/datum (clj->js new-position)))
-      selection-b
+        selection-b
         (if
           transition-time
           (->
@@ -89,15 +89,15 @@
             (d3/duration transition-time))
           ;else
           selection-a)
-      selection-c
+        selection-c
         (if
           and-then
           (->
             selection-b
             (d3/on "end" and-then))
           ;else
-          selection-b)
-        ]
+          selection-b)]
+        
     (->
       selection-c
       (d3/attr "cx" get-x)

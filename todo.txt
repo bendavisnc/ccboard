@@ -11,6 +11,9 @@ front end work
   add websocket connection code ✓
 
   mobile work
+    - size layout issues (okay in horizontal) ✓
+    - ipad render issues
+    -
 
   add autoplacement ✓
 
@@ -21,4 +24,6 @@ add board functionality ✓
 
 add move back forth
 
-weed out original d3 wrapper
+weed out original d3 wrapper ✓
+
+figure out a way to make setting the site address file more dynamic

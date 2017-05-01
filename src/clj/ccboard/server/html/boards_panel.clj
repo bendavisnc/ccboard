@@ -2,6 +2,9 @@
   (:require
     [ccboard.server.html.buttons :as buttons]))
 
+;;
+;;
+;; Static htlm elements that make up the boards panel
 
 (def ^:private new-board-input
   [:div {:id "new-board-input"}

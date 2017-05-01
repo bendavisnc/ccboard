@@ -14,8 +14,8 @@
   {
     :x x
     :y y
-    :z (or z 1)
-  })
+    :z (or z 1)})
+  
 
 (defn to-vec [this]
   [(x this) (y this)])

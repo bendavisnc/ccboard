@@ -7,9 +7,9 @@
 
 (defn piece->coord [p]
   (let [
-      {:keys [x, y, z]}
-        (js->clj (d3/datum p) :keywordize-keys true)
-    ]
+        {:keys [x, y, z]}
+        (js->clj (d3/datum p) :keywordize-keys true)]
+    
     (coord/create :x x :y y :z z)))
 
 (defn piece-k->coord [piece-k]

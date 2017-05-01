@@ -1,9 +1,9 @@
 (ns ccboard.server.css.style.pieces
   (:require
     [ccboard.server.css.style.constants :as constants]
-    [ccboard.server.pieces.piece-generation :as piece-generation]
-    )
-)
+    [ccboard.server.pieces.piece-generation :as piece-generation]))
+    
+
 
 
 (defn get-player-css [player-pieces, fill-color]
@@ -28,5 +28,5 @@
     player-three-css
     player-four-css
     player-five-css
-    player-six-css
-    ))
+    player-six-css))
+    

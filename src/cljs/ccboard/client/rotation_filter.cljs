@@ -15,14 +15,14 @@
 
 (add-watch rotation-state :each-new-val
            (fn [_ _ _ n]
-   (->
-      ccboard-svg/pieces-container
-      (d3/transition)
+            (->
+               ccboard-svg/pieces-container
+               (d3/transition)
       ;(d3/attr "transform" (str "rotate(" (first n) ", 0.5, 0.5)"))
-      (d3/attr "transform" (str "rotate(" n ", 0.5, 0.5)"))
-      (d3/duration 500)
-      (d3/ease (aget js/d3 "easeCircleInOut"))
-      )))
+               (d3/attr "transform" (str "rotate(" n ", 0.5, 0.5)"))
+               (d3/duration 500)
+               (d3/ease (aget js/d3 "easeCircleInOut")))))
+      
 
 (defn enable! []
   (->

@@ -1,8 +1,8 @@
 (ns ccboard.client.async.movement.local-chans
   (:require
-    [cljs.core.async :as async]
-    )
-)
+    [cljs.core.async :as async]))
+    
+
 
 ;;
 ;; A chan that signifies drag starts.

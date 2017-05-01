@@ -2,9 +2,9 @@
   (:require
     [ccboard.shared.model.board :as board]
     [ccboard.shared.model.move-event :as move-event]
-    [ccboard.server.pieces.piece-generation :as piece-generation]
-    )
-)
+    [ccboard.server.pieces.piece-generation :as piece-generation]))
+    
+
 
 ;;
 ;;
@@ -13,8 +13,8 @@
 (defn create-standard-board [board-k]
   (board/create board-k
     :player-pieces piece-generation/all-player-pieces
-    :static-pieces piece-generation/all-static-pieces
-    ))
+    :static-pieces piece-generation/all-static-pieces))
+    
 
 (def the-standard-board
   (create-standard-board :board-0))
@@ -25,8 +25,8 @@
   (reset! loaded-boards
     {
      (board/board-id the-standard-board)
-       the-standard-board
-    }))
+     the-standard-board}))
+    
 (reset-boards!)
 
 (defn get-board [board-k]
@@ -44,8 +44,8 @@
   (->
     (get-all-board-keys)
     set
-    board-key
-    ))
+    board-key))
+    
 
 ;; an atomic Map
 ;; client-id -> boards-listening-to -> a send move function
@@ -85,8 +85,8 @@
         (println "board: " board-k)
         (println "moves: " (count (board/move-events (get-board board-k))))
         (println "----------------------------")
-        (println)
-        ))))
+        (println)))))
+        
 
 
 

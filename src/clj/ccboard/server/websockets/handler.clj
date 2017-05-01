@@ -3,10 +3,10 @@
     [org.httpkit.server :as httpkit-server]
     [ccboard.server.boards :as boards]
     [clojure.tools.logging :as logging]
-    [ccboard.shared.model.move-event :as move-event]
-    )
+    [ccboard.shared.model.move-event :as move-event]))
+    
 
-)
+
 
 (defn ^:private new-client-id []
   (gensym "ccboard-client"))
@@ -14,11 +14,11 @@
 (defn ^:private ws-event-resolver [[_, e]]
   (cond
     (= e :close-event)
-      :client-session-over
+    :client-session-over
     (boards/board-key? e)
-      :board-key-received
+    :board-key-received
     (move-event/move-event? e)
-      :move-event-received
+    :move-event-received
     :else
       (throw (new Exception (str "Unhandled websocket event from client." e)))))
 
@@ -52,8 +52,8 @@
       "new move event with piece: "
       (move-event/as-str new-move-event))
     (boards/update-board! new-move-event)
-    (boards/update-board-listeners! new-move-event)
-    ))
+    (boards/update-board-listeners! new-move-event)))
+    
 
 (defn ws-handler [request]
   (httpkit-server/with-channel request conn
@@ -62,5 +62,5 @@
         (fn [e]
           (websocket-client-reactions [conn, :close-event])))
       (httpkit-server/on-receive conn
-        #(websocket-client-reactions [conn, (read-string %)]))
-        )))
+        #(websocket-client-reactions [conn, (read-string %)])))))
+        

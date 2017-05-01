@@ -5,7 +5,9 @@
     [ccboard.server.html.buttons :as buttons]
     [ccboard.server.css.style.constants :as style-constants]))
     
-
+;;
+;;
+;; Defines the one and only page and how to render it.
 
 (def svg-element
   [:svg 

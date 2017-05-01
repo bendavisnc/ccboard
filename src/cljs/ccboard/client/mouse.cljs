@@ -6,24 +6,24 @@
     [ccboard.shared.model.coord :as coord]
     [ccboard.client.util.pieces :as pieces-util]
     [diithree.core :as d3]
-    [ccboard.client.rotation-filter :as rotation-filter]
-    )
-)
+    [ccboard.client.rotation-filter :as rotation-filter]))
+    
+
 
 
 (defn on-drag! [_]
   "Calls the d3 piece render method and pushes out for async usage."
   (this-as this*
     (let [
-        piece-k (keyword (aget this* "id"))
-        drag-coord
+          piece-k (keyword (aget this* "id"))
+          drag-coord
           (rotation-filter/r-apply
             (coord/from-vec (d3-helpers/mouse-data ccboard-svg/svg-d3)))
-        landing-piece
+          landing-piece
           (pieces-util/coord->static-piece
             (pieces-util/closest-available-coord
-              (pieces-util/piece-k->coord piece-k)))
-      ]
+              (pieces-util/piece-k->coord piece-k)))]
+      
       (do
         (ccboard-svg/update-piece! piece-k drag-coord) ; update the dragged piece's position
         (ccboard-svg/highlight-piece! landing-piece) ; highlight the closest piece to it
@@ -32,18 +32,18 @@
 (defn on-drag-start! [_]
   (this-as this*
     (let [
-        piece-k (keyword (aget this* "id"))
-      ]
+          piece-k (keyword (aget this* "id"))]
+      
       (async-movement/put-start! piece-k))))
 
 (defn on-drag-stop! [_]
   (this-as this*
     (let [
-        piece-k (keyword (aget this* "id"))
-        landing-coord
+          piece-k (keyword (aget this* "id"))
+          landing-coord
           (pieces-util/closest-available-coord
-            (pieces-util/piece-k->coord piece-k))
-      ]
+            (pieces-util/piece-k->coord piece-k))]
+      
       (do
         (ccboard-svg/update-piece! piece-k landing-coord :transition-time 500)
         (async-movement/put-new-coord! landing-coord)

@@ -17,8 +17,8 @@
   (fn [coord, degrees]
     (let [
           theta (to-radians degrees)
-          [x, y] coord
-          ]
+          [x, y] coord]
+          
       [
        (+
          (* x (Math/cos theta))
@@ -30,8 +30,8 @@
 (def apply-translation
   (fn [coord, dx, dy]
     (let [
-          [x, y] coord
-          ]
+          [x, y] coord]
+          
       [
        (+ x dx)
        (+ y dy)])))
@@ -40,8 +40,8 @@
 (def perform-rotation
   (fn [coord, degrees, pivot-coord]
     (let [
-          [dx, dy] pivot-coord
-          ]
+          [dx, dy] pivot-coord]
+          
       (
         (comp
           #(apply-translation % dx dy)
@@ -53,8 +53,8 @@
   (fn [coord-a, coord-b]
     (let [
           [ax, ay] coord-a
-          [bx, by] coord-b
-          ]
+          [bx, by] coord-b]
+          
       (Math/pow
         (+
           (Math/pow

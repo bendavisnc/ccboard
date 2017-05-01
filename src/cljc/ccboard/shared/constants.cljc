@@ -10,8 +10,9 @@
 ;(def site-address "http://192.168.1.128:3000")
 ;(def site-address "192.168.1.128:3000")
 ;(def site-address "localhost:3000")
-(def site-address "98.26.29.137:3000")
+;(def ^:dynamic site-address "98.26.29.137:3000") ; todo
 
+(def site-address "192.168.1.102:3000")
 
 
 ;;

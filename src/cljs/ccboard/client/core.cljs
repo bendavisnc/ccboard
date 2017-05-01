@@ -3,9 +3,9 @@
    [jayq.core :as jayq]
    [ccboard.client.boards :as boards]
    [ccboard.client.async.movement.local]
-   [ccboard.client.rotation-filter :as rotation-filter]
-   )
-)
+   [ccboard.client.rotation-filter :as rotation-filter]))
+   
+
 
 (defn on-app-start! []
   (do

@@ -5,8 +5,8 @@
     [cljs.core.async :as async]
     [ccboard.shared.model.move-event :as move-event]
     [ccboard.client.websocket-board-session :as board-session]
-    [ccboard.client.async.movement.local-chans :refer [starts, stops, new-coords, put-new-local-move-event!, local-move-events]]
-    ))
+    [ccboard.client.async.movement.local-chans :refer [starts, stops, new-coords, put-new-local-move-event!, local-move-events]]))
+    
 
 
 ;;
@@ -14,30 +14,30 @@
 (async-macros/go
   (while true
     (loop [
-        movement-data []
-        piece-k (async/<! starts)
-        start-time (.getTime (new js/Date))
-      ]
+           movement-data []
+           piece-k (async/<! starts)
+           start-time (.getTime (new js/Date))]
+      
       (let [
-          [next-event, from-port] (async/alts! [stops, new-coords])
-        ]
+            [next-event, from-port] (async/alts! [stops, new-coords])]
+        
         (if
           (= from-port stops)
-            (put-new-local-move-event!
-              (move-event/create
-                piece-k
-                (board-session/current-board)
-                (board-session/current-client)
-                :movement-data movement-data
-                :end-time (.getTime (new js/Date))
-                :start-time start-time
-                :move-realized? true))
-          ;else
-            (recur
-              (conj movement-data next-event)
+          (put-new-local-move-event!
+            (move-event/create
               piece-k
-              start-time
-              ))))))
+              (board-session/current-board)
+              (board-session/current-client)
+              :movement-data movement-data
+              :end-time (.getTime (new js/Date))
+              :start-time start-time
+              :move-realized? true))
+          ;else
+          (recur
+            (conj movement-data next-event)
+            piece-k
+            start-time))))))
+              
 
 
 ;; Wait's for local move events and bounces them to the server

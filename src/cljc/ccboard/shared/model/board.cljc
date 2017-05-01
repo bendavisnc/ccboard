@@ -26,7 +26,7 @@
     :board-id board-id
     :player-pieces player-pieces
     :static-pieces static-pieces
-    :move-events (or move-events [])
-  })
+    :move-events (or move-events [])})
+  
 
 

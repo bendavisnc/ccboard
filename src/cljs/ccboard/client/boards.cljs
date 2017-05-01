@@ -3,8 +3,8 @@
     [ccboard.client.ajax.boards :as boards-ajax]
     [ccboard.client.ui.boards-panel :as boards-panel]
     [ccboard.client.websocket-board-session :as websocket-board-session]
-    [diithree.core :as d3]
-    ))
+    [diithree.core :as d3]))
+    
 
 ;;
 ;;

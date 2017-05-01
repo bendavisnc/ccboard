@@ -20,15 +20,6 @@
 (def ^{:doc "The coord that the following layout math is based on."}
   coord-0 (pieces-util/get-rel-coord pieces-center-coord -6 -4))
 
-;(defn projected-coords [cs]
-;  "Projects coords from a 0 1 unit space to a 0 board dimension unit space."
-;  (map
-;    (fn [c]
-;      (coord/create
-;        :x (* (coord/x c) constants/board-width)
-;        :y (* (coord/y c) constants/board-height)))
-;    cs))
-
 (defn row-of-piece-coords [how-many, coord-0]
   "Generates a row of coords based on a starting coord."
   (loop [acc [coord-0]]
@@ -84,7 +75,6 @@
 (def generate-coords
   ^{:doc "Given a coord to start out, generates all of the coords representing all of the pieces of a chinese checkers set."}
   (comp
-    ;projected-coords
     star-of-piece-coords
     triangle-of-piece-coords
     (partial row-of-piece-coords constants/board-side-length)))
