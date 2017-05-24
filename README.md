@@ -1,32 +1,14 @@
 # ccboard
 
-FIXME: description
+A server client implementation of a simple chinese checkers board.
 
-## Installation
+Uses d3.js on the frontend and and httpkit websockets on the backend.
 
-Download from http://example.com/FIXME.
+SCREENSHOT:
 
-## Usage
+[ss]: screenshot.png
+![screenshot][ss]
 
-FIXME: explanation
-
-    $ java -jar ccboard-0.1.0-standalone.jar [args]
-
-## Options
-
-FIXME: listing of options this app accepts.
-
-## Examples
-
-...
-
-### Bugs
-
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
 
 ## License
 
